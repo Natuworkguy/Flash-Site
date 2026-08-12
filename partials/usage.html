@@ -1,0 +1,38 @@
+<h2 class="section-title reveal">Three ways to command it.</h2>
+
+<div class="usage-grid">
+  <div class="usage-card reveal">
+    <span class="usage-index">01</span>
+    <h3>Internal commands</h3>
+    <table class="cmd-table">
+      <tbody>
+        <tr><td><code>/help</code> <span class="cmd-alt">/?</span></td><td>Show the help message</td></tr>
+        <tr><td><code>/model</code></td><td>Show the active model and Ollama host</td></tr>
+        <tr><td><code>/clear</code></td><td>Clear the conversation history</td></tr>
+        <tr><td><code>/bye</code></td><td>Exit the application</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="usage-card reveal">
+    <span class="usage-index">02</span>
+    <h3>Direct shell execution</h3>
+    <p class="usage-desc">Run shell commands directly. No AI involved, no delay:</p>
+    <div class="mini-term static">
+      <div class="mini-term-row"><span class="mini-prompt">$</span><span class="mini-cmd">!ls -la</span></div>
+      <div class="mini-term-row"><span class="mini-prompt">$</span><span class="mini-cmd">!git status</span></div>
+      <div class="mini-term-row"><span class="mini-prompt">$</span><span class="mini-cmd">!echo "Hello"</span></div>
+    </div>
+  </div>
+
+  <div class="usage-card reveal">
+    <span class="usage-index">03</span>
+    <h3>Natural language</h3>
+    <p class="usage-desc">
+      Just type what you want. If FLASH needs to see a file or run a command
+      to answer you, it invokes the <code>shell</code> tool on its own. It
+      can even search the web and show you exactly how it reasoned its way
+      to an answer.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="onyx-inner">
+  <div class="onyx-copy">
+    <p class="onyx-kicker reveal-blur">THE FLAGSHIP MODEL</p>
+    <h2 class="onyx-title reveal-blur">Meet <span class="glow-word">{{onyx.version}}.</span><span class="onyx-badge">{{onyx.releaseTag}}</span></h2>
+    <p class="onyx-sub reveal-blur">
+      {{onyx.version}} is not a generic model wearing a costume. It is
+      {{onyx.baseModel}}, retrained and retuned to think and act like FLASH:
+      sharper reasoning, faster tool calls, and a personality built
+      specifically for the terminal.
+    </p>
+    <div class="code-block reveal-blur">
+      <div class="code-block-head">
+        <span>Pull the latest release</span>
+        <button class="copy-btn" data-copy="{{onyx.pullCmd}}">Copy</button>
+      </div>
+      <pre><code>{{onyx.pullCmd}}</code></pre>
+    </div>
+    <div class="code-block reveal-blur">
+      <div class="code-block-head">
+        <span>Or build it straight from the repo</span>
+        <button class="copy-btn" data-copy="{{onyx.buildCmd}}">Copy</button>
+      </div>
+      <pre><code>{{onyx.buildCmd}}</code></pre>
+    </div>
+  </div>
+  <div class="onyx-visual reveal">
+    <div class="onyx-orb-wrap" data-scrub>
+      <div class="onyx-orb"></div>
+      <div class="onyx-orb-ring"></div>
+    </div>
+  </div>
+</div>

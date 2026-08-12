@@ -1,0 +1,44 @@
+<div class="hero-lights" aria-hidden="true">
+  <span class="beam beam-1"></span>
+  <span class="beam beam-2"></span>
+  <span class="beam beam-3"></span>
+  <span class="beam beam-4"></span>
+</div>
+
+<div class="hero-inner">
+  <h1 class="hero-title reveal">
+    FLASH <span class="muted-line">isn't just a CLI.</span><br />
+    <span class="accent-outline">It's the terminal, evolved.</span>
+  </h1>
+
+  <p class="hero-sub reveal">
+    The first command line interface fused with real local intelligence. FLASH
+    talks directly to your own Ollama models, local or remote, and executes
+    real shell commands. No cloud round trip, no black box: just raw
+    capability, running entirely on hardware you control.
+  </p>
+
+  <div class="hero-cta reveal">
+    <button class="btn btn-solid btn-lg" data-copy="{{installCmd}}">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 20h16"/></svg>
+      <span class="copy-label">pipx install (one line)</span>
+    </button>
+    <a class="btn btn-outline btn-lg" href="{{github}}" target="_blank" rel="noopener">View source</a>
+  </div>
+
+  <div class="hero-terminal reveal" id="tilt-card" data-scrub>
+    <div class="term-glow" aria-hidden="true"></div>
+    <div class="term-window">
+      <div class="term-bar">
+        <span class="term-dot dot-r"></span>
+        <span class="term-dot dot-y"></span>
+        <span class="term-dot dot-g"></span>
+        <span class="term-title">~/  flash</span>
+      </div>
+      <div class="term-body" id="term-body" aria-live="polite">
+        <div class="term-line" id="term-output"></div>
+        <span class="term-cursor" id="term-cursor">&#9608;</span>
+      </div>
+    </div>
+  </div>
+</div>

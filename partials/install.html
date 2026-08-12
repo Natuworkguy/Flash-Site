@@ -1,0 +1,102 @@
+<h2 class="section-title reveal">Two paths in. One smarter terminal.</h2>
+<p class="section-sub reveal">Pick the install that fits your workflow. Every path gets you running in under a minute, on macOS, Linux, or Windows.</p>
+
+<div class="tabs reveal" role="tablist">
+  <button class="tab active" data-tab="quick" role="tab" aria-selected="true">Quick install</button>
+  <button class="tab" data-tab="manual" role="tab" aria-selected="false">Manual install</button>
+</div>
+
+<div class="tab-panel active" data-panel="quick">
+  <div class="os-toggle" role="tablist" aria-label="Operating system">
+    <button class="os-tab active" data-os="unix" role="tab" aria-selected="true">macOS / Linux</button>
+    <button class="os-tab" data-os="windows" role="tab" aria-selected="false">Windows</button>
+  </div>
+
+  <div class="os-panel active" data-os-panel="unix">
+    <div class="code-block">
+      <div class="code-block-head">
+        <span>Install: clones the repo, installs with pipx, cleans up after itself</span>
+        <button class="copy-btn" data-copy="{{installCmd}}">Copy</button>
+      </div>
+      <pre><code>{{installCmd}}</code></pre>
+    </div>
+    <div class="code-block">
+      <div class="code-block-head">
+        <span>Run it</span>
+        <button class="copy-btn" data-copy="{{runCmd}}">Copy</button>
+      </div>
+      <pre><code>{{runCmd}}</code></pre>
+    </div>
+    <div class="code-block">
+      <div class="code-block-head">
+        <span>Uninstall</span>
+        <button class="copy-btn" data-copy="{{uninstallCmd}}">Copy</button>
+      </div>
+      <pre><code>{{uninstallCmd}}</code></pre>
+    </div>
+  </div>
+
+  <div class="os-panel" data-os-panel="windows">
+    <div class="code-block">
+      <div class="code-block-head">
+        <span>Install (PowerShell)</span>
+        <button class="copy-btn" data-copy="{{windows.installCmd}}">Copy</button>
+      </div>
+      <pre><code>{{windows.installCmd}}</code></pre>
+    </div>
+    <div class="code-block">
+      <div class="code-block-head">
+        <span>Run it</span>
+        <button class="copy-btn" data-copy="{{windows.runCmd}}">Copy</button>
+      </div>
+      <pre><code>{{windows.runCmd}}</code></pre>
+    </div>
+    <div class="code-block">
+      <div class="code-block-head">
+        <span>Uninstall (PowerShell)</span>
+        <button class="copy-btn" data-copy="{{windows.uninstallCmd}}">Copy</button>
+      </div>
+      <pre><code>{{windows.uninstallCmd}}</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="tab-panel" data-panel="manual">
+  <div class="code-block">
+    <div class="code-block-head">
+      <span>1. Clone the repository</span>
+      <button class="copy-btn" data-copy="{{manual.clone}}">Copy</button>
+    </div>
+    <pre><code>{{manual.clone}}</code></pre>
+  </div>
+  <div class="code-block">
+    <div class="code-block-head">
+      <span>2. Install dependencies</span>
+      <button class="copy-btn" data-copy="{{manual.deps}}">Copy</button>
+    </div>
+    <pre><code>{{manual.deps}}</code></pre>
+  </div>
+  <div class="code-block">
+    <div class="code-block-head">
+      <span>3. Install Ollama and pull a tool-calling model</span>
+      <button class="copy-btn" data-copy="{{manual.pullModel}}">Copy</button>
+    </div>
+    <pre><code>{{manual.pullModel}}</code></pre>
+  </div>
+  <div class="code-block">
+    <div class="code-block-head">
+      <span>4. Run</span>
+      <button class="copy-btn" data-copy="{{manual.run}}">Copy</button>
+    </div>
+    <pre><code>{{manual.run}}</code></pre>
+  </div>
+</div>
+
+<div class="config-note reveal">
+  <p>Configure FLASH with a <code>~/.flash.env</code> file:</p>
+  <div class="code-block">
+    <pre><code>MODEL=llama3.1
+OLLAMA_HOST=http://localhost:11434</code></pre>
+  </div>
+  <p class="config-note-sub">See the repository's <code>docs/CONFIGURATION.md</code> for the full list of environment variables.</p>
+</div>
