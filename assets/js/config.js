@@ -4,6 +4,10 @@
 // propagates to every section, code block, and copy button automatically.
 export const SITE = {
   github: "https://github.com/Natuworkguy/Flash",
+  demoVideo: {
+    id: "padyQR3tPUs",
+    title: "FLASH demo video",
+  },
   installCmd: "curl -fsSL https://raw.githubusercontent.com/Natuworkguy/Flash/main/install.sh | bash",
   uninstallCmd: "curl -fsSL https://raw.githubusercontent.com/Natuworkguy/Flash/main/install.sh | bash -s -- --uninstall",
   runCmd: "flash",

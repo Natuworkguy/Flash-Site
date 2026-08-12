@@ -8,6 +8,7 @@ export function initUI() {
   initCopyButtons();
   initTilt();
   initScrollTopButton();
+  initVideoThumbFallback();
 }
 
 function initNavScroll() {
@@ -112,6 +113,28 @@ function initOsToggle() {
 
   const isWindows = /Windows/i.test(navigator.userAgent);
   activate(isWindows ? "windows" : "unix");
+}
+
+function initVideoThumbFallback() {
+  const thumb = document.querySelector(".video-embed-thumb");
+  const fallback = thumb ? thumb.dataset.fallback : null;
+  if (!thumb || !fallback) return;
+
+  const useFallback = () => {
+    if (thumb.src !== fallback) thumb.src = fallback;
+  };
+
+  thumb.addEventListener("error", useFallback, { once: true });
+  thumb.addEventListener(
+    "load",
+    () => {
+      // maxresdefault.jpg falls back to a 120x90 grey placeholder (HTTP 200,
+      // not a 404) when a video has no high-res thumbnail, so check dimensions
+      // rather than relying on the error event alone.
+      if (thumb.naturalWidth <= 120) useFallback();
+    },
+    { once: true }
+  );
 }
 
 function initCopyButtons() {
