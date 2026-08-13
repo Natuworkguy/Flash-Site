@@ -1033,6 +1033,7 @@ section {
   font-size: 0.76rem;
 }
 .usage-footnote .note-star { margin-right: 4px; }
+.usage-footnote + .usage-footnote { margin-top: 6px; }
 
 .cmd-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
 .cmd-table td { padding: 8px 0; border-top: 1px solid var(--line-soft); vertical-align: top; }
