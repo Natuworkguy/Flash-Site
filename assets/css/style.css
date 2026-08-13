@@ -968,6 +968,19 @@ section {
 .os-panel { display: none; }
 .os-panel.active { display: block; animation: fade-in 0.35s var(--ease); }
 
+.win-notify {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--accent-dim);
+  background: rgba(255, 138, 61, 0.06);
+  margin: 0 0 16px;
+}
+.win-notify svg { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+.win-notify p { margin: 0; font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
 .config-note { margin-top: 48px; color: var(--muted); font-size: 0.95rem; }
 .config-note p { margin: 0 0 10px; }
 .config-note-sub { font-size: 0.85rem; color: var(--muted-2); }
