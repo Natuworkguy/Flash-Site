@@ -351,12 +351,14 @@ section {
   margin: 0 0 26px;
 }
 .hero-title .muted-line { color: var(--muted-2); font-weight: 700; }
-.accent-outline {
+.accent-glow-text {
   display: inline-block;
   font-size: 0.84em;
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--accent);
-  text-stroke: 1.5px var(--accent);
+  color: var(--accent-2);
+  text-shadow:
+    0 0 14px var(--accent-glow),
+    0 0 38px var(--accent-glow),
+    0 0 70px rgba(255, 138, 61, 0.25);
 }
 
 .hero-sub {
