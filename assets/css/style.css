@@ -1025,6 +1025,15 @@ section {
 .usage-desc { color: var(--muted); font-size: 0.9rem; margin: 0 0 14px; }
 .usage-note { margin: 14px 0 0; }
 
+.note-star { color: var(--accent); font-weight: 700; }
+
+.usage-footnote {
+  margin: 20px 0 0;
+  color: var(--muted-2);
+  font-size: 0.76rem;
+}
+.usage-footnote .note-star { margin-right: 4px; }
+
 .cmd-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
 .cmd-table td { padding: 8px 0; border-top: 1px solid var(--line-soft); vertical-align: top; }
 .cmd-table td:first-child { white-space: nowrap; padding-right: 14px; }
