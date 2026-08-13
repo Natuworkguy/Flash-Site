@@ -198,7 +198,7 @@ section {
   color: var(--fg);
   flex-shrink: 0;
 }
-.brand-bolt { color: var(--accent); flex-shrink: 0; }
+.brand-bolt { flex-shrink: 0; object-fit: contain; }
 
 .nav-links {
   display: flex;
