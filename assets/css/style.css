@@ -721,6 +721,22 @@ section {
 .feature-card h3 { margin: 0 0 8px; font-size: 1.05rem; font-weight: 700; }
 .feature-card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
 
+.trust-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 44px auto 0;
+  padding: 12px 22px;
+  border-radius: 100px;
+  border: 1px solid var(--line);
+  background: var(--bg-alt);
+  text-align: left;
+}
+.trust-note svg { color: var(--accent); flex-shrink: 0; }
+.trust-note p { margin: 0; color: var(--muted); font-size: 0.86rem; }
+
 /* =============== ONYX =============== */
 
 .onyx { max-width: 1120px; margin: 0 auto; padding: clamp(90px, 16vw, 120px) clamp(20px, 6vw, 32px); }
