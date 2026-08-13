@@ -5,9 +5,25 @@
     <p class="onyx-sub reveal-blur">
       {{onyx.version}} is not a generic model wearing a costume. It is
       {{onyx.baseModel}}, retrained and retuned to think and act like FLASH:
-      sharper reasoning, faster tool calls, and a personality built
-      specifically for the terminal.
+      sharper reasoning, faster tool calls, and replies that read like a
+      text from a coworker, not an essay from a textbook.
     </p>
+
+    <div class="onyx-compare reveal-blur">
+      <div class="compare-prompt">
+        <span class="compare-label">You</span>
+        <p>is the dev server up?</p>
+      </div>
+      <div class="compare-row compare-generic">
+        <span class="compare-label">Generic model</span>
+        <p>"Certainly! I'd be happy to help you check on that. To verify whether your development server is currently running, you could use a command such as curl or check your process manager. Would you like me to walk you through the steps involved?"</p>
+      </div>
+      <div class="compare-row compare-onyx">
+        <span class="compare-label">{{onyx.version}}</span>
+        <p>"Yep, :8000, up since 9:12am. No errors."</p>
+      </div>
+    </div>
+
     <div class="code-block reveal-blur">
       <div class="code-block-head">
         <span>Pull the latest release</span>

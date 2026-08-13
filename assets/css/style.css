@@ -756,6 +756,59 @@ section {
 }
 .onyx-sub { color: var(--muted); margin: 0 0 32px; max-width: 480px; font-size: clamp(0.95rem, 2vw, 1rem); }
 
+.onyx-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 0 32px;
+  max-width: 480px;
+}
+.compare-prompt {
+  padding: 0 4px;
+}
+.compare-prompt .compare-label { color: var(--muted-2); }
+.compare-prompt p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  color: var(--fg);
+}
+
+.compare-row {
+  border-radius: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  background: var(--bg-alt);
+}
+.compare-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.compare-generic { opacity: 0.65; }
+.compare-generic .compare-label { color: var(--muted-2); }
+.compare-generic p {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.compare-onyx {
+  border-color: var(--accent-dim);
+  background: rgba(255, 138, 61, 0.07);
+}
+.compare-onyx .compare-label { color: var(--accent); }
+.compare-onyx p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--accent-2);
+}
+
 .onyx-visual { display: flex; justify-content: center; }
 .onyx-orb-wrap { position: relative; width: 260px; height: 260px; }
 .onyx-orb {
