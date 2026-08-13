@@ -308,15 +308,18 @@ section {
   padding: clamp(130px, 24vw, 190px) clamp(20px, 6vw, 32px) clamp(80px, 12vw, 120px);
   max-width: 1120px;
   margin: 0 auto;
-  overflow: hidden;
 }
 
 .hero-lights {
   position: absolute;
-  inset: -10% -20% auto -20%;
-  height: 640px;
+  top: -10%;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
   z-index: -1;
   pointer-events: none;
+  overflow: hidden;
 }
 .beam {
   position: absolute;
@@ -339,7 +342,6 @@ section {
 }
 @media (prefers-reduced-motion: reduce) { .beam { animation: none; } }
 @media (max-width: 640px) {
-  .hero-lights { height: 420px; }
   .beam { filter: blur(42px); opacity: 0.25; }
 }
 
