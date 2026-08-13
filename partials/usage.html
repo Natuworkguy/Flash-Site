@@ -24,6 +24,7 @@
       <div class="mini-term-row"><span class="mini-prompt">$</span><span class="mini-cmd">!git status</span></div>
       <div class="mini-term-row"><span class="mini-prompt">$</span><span class="mini-cmd">!echo "Hello"</span></div>
     </div>
+    <p class="usage-desc usage-note">Every <code>!</code> command runs with full interactive input live, a real terminal channel, not a simulation. Prompts, passwords or other sensitive info<span class="note-star">***</span>, and editors just work.</p>
   </div>
 
   <div class="usage-card reveal">
@@ -44,8 +45,14 @@
       It runs on its own system prompt, tuned to get the most done in the
       fewest moves and to act safely<span class="note-star">**</span>.
     </p>
+    <p class="usage-desc usage-note">
+      When the agent runs a command itself, input is cut automatically: a
+      self-aware execution layer engineered so it can never stall waiting on
+      a prompt it can't see. Real autonomy, not a frozen process.
+    </p>
   </div>
 </div>
 
 <p class="usage-footnote"><span class="note-star">*</span>Autonomous mode lets FLASH run shell commands without asking first. That's risky: use it on machines and directories you trust.</p>
 <p class="usage-footnote"><span class="note-star">**</span>AI is unpredictable by nature. FLASH is designed to act safely, but neither FLASH nor its author is responsible for actions the model takes, review its output before you rely on it.</p>
+<p class="usage-footnote"><span class="note-star">***</span>Passwords or other sensitive info typed into a <code>!</code> command never touch FLASH or the model. They go straight into your terminal's secure, masked input layer: invisible from the first keystroke. FLASH doesn't see them, doesn't log them, can't.</p>
