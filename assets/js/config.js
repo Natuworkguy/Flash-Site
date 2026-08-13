@@ -8,12 +8,12 @@ export const SITE = {
     id: "padyQR3tPUs",
     title: "FLASH demo video",
   },
-  installCmd: "curl -fsSL https://raw.githubusercontent.com/Natuworkguy/Flash/main/install.sh | bash",
-  uninstallCmd: "curl -fsSL https://raw.githubusercontent.com/Natuworkguy/Flash/main/install.sh | bash -s -- --uninstall",
+  installCmd: "curl -fsSL https://flashproject.dev/install.sh | bash",
+  uninstallCmd: "curl -fsSL https://flashproject.dev/install.sh | bash -s -- --uninstall",
   runCmd: "flash",
   windows: {
-    installCmd: "irm https://raw.githubusercontent.com/Natuworkguy/Flash/main/install.ps1 | iex",
-    uninstallCmd: "& ([scriptblock]::Create((irm https://raw.githubusercontent.com/Natuworkguy/Flash/main/install.ps1))) -Uninstall",
+    installCmd: "irm https://flashproject.dev/install.ps1 | iex",
+    uninstallCmd: "& ([scriptblock]::Create((irm https://flashproject.dev/install.ps1))) -Uninstall",
     runCmd: "flash",
   },
   manual: {
