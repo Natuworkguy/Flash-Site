@@ -809,6 +809,22 @@ section {
   color: var(--accent-2);
 }
 
+.onyx-claim {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--accent-dim);
+  background: rgba(255, 138, 61, 0.06);
+  margin: 0 0 32px;
+  max-width: 480px;
+  text-align: left;
+}
+.onyx-claim svg { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+.onyx-claim p { margin: 0; font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+.onyx-claim strong { color: var(--accent-2); font-weight: 700; }
+
 .onyx-visual { display: flex; justify-content: center; }
 .onyx-orb-wrap { position: relative; width: 260px; height: 260px; }
 .onyx-orb {
