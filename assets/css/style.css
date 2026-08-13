@@ -514,6 +514,10 @@ section {
   padding: clamp(90px, 15vw, 130px) clamp(20px, 6vw, 32px) clamp(90px, 16vw, 120px);
   text-align: center;
 }
+
+.section-divider {
+  border-top: 1px solid var(--line);
+}
 .watch-kicker {
   font-family: var(--font-mono);
   font-size: 0.78rem;
