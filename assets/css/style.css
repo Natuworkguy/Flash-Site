@@ -993,9 +993,33 @@ section {
 .win-notify svg { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
 .win-notify p { margin: 0; font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
 
-.config-note { margin-top: 48px; color: var(--muted); font-size: 0.95rem; }
+.config-note { margin-top: 32px; color: var(--muted); font-size: 0.95rem; }
 .config-note p { margin: 0 0 10px; }
 .config-note-sub { font-size: 0.85rem; color: var(--muted-2); }
+
+.live-config {
+  margin-top: 48px;
+  padding: 28px;
+  border: 1px solid var(--accent-dim);
+  border-radius: var(--radius);
+  background: rgba(255, 138, 61, 0.05);
+}
+.live-config-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin: 0 0 12px;
+}
+.live-config-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+  color: var(--fg);
+}
+.live-config .cmd-table { margin: 4px 0 16px; }
+.live-config .config-note-sub { margin: 0; }
 
 /* =============== USAGE =============== */
 

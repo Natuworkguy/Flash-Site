@@ -96,9 +96,24 @@
   </div>
 </div>
 
+<div class="live-config reveal">
+  <p class="live-config-kicker">LIVE CONFIG. ZERO RESTARTS.</p>
+  <h3 class="live-config-title">Change anything without leaving the REPL.</h3>
+  <p class="usage-desc">Switch models, flip autonomous mode, or edit any setting on the fly: five friendly commands, no JSON, no config file required.</p>
+  <table class="cmd-table">
+    <tbody>
+      <tr><td><code>/model</code></td><td>Show or switch the active model, live</td></tr>
+      <tr><td><code>/auto</code></td><td>Toggle autonomous mode on or off</td></tr>
+      <tr><td><code>/set</code></td><td>Set any env var, no restart needed</td></tr>
+      <tr><td><code>/unset</code></td><td>Remove an env var</td></tr>
+      <tr><td><code>/refresh</code></td><td>Reload your config from disk</td></tr>
+    </tbody>
+  </table>
+  <p class="config-note-sub">Every change is written straight to <code>~/.flash.env</code> for you, so it's still there next time you launch FLASH.</p>
+</div>
+
 <div class="config-note reveal">
-  <p>Don't want to touch a config file? FLASH has an easy slash-command interface for that: no JSON, no env files, unless you want them.</p>
-  <p>Prefer a text file? Configure FLASH with a <code>~/.flash.env</code> file:</p>
+  <p>Prefer a text file instead? Configure FLASH by hand with a <code>~/.flash.env</code> file:</p>
   <div class="code-block">
     <pre><code>MODEL=llama3.1
 OLLAMA_HOST=http://localhost:11434</code></pre>
