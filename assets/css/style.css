@@ -702,6 +702,18 @@ section {
 @media (max-width: 900px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .feature-grid { grid-template-columns: 1fr; } }
 
+.feature-card-wide { grid-column: 1 / -1; }
+@media (min-width: 601px) {
+  .feature-card-wide {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .feature-card-wide .feature-icon { margin-bottom: 0; flex-shrink: 0; }
+  .feature-card-wide h3 { margin: 0 0 6px; }
+  .feature-card-wide p { max-width: 640px; }
+}
+
 .feature-card {
   background: var(--bg-alt);
   border: 1px solid var(--line);
