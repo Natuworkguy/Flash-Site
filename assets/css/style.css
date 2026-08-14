@@ -8,7 +8,7 @@
   --bg-raise: #131519;
   --fg: #f4f1ea;
   --muted: #9b968d;
-  --muted-2: #706b63;
+  --muted-2: #8c8579;
   --line: rgba(255, 255, 255, 0.09);
   --line-soft: rgba(255, 255, 255, 0.05);
 
@@ -20,11 +20,32 @@
   --violet: #8a6bff;
   --pink: #ff5da2;
 
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-sans: "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   --radius: 14px;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Metric-matched local fallbacks so the Inter/JetBrains Mono webfont swap
+   (font-display: swap) doesn't reflow the page: these size-adjusted local
+   faces occupy the same box the real webfont will, so swapping in the
+   loaded font only changes glyph shapes, not layout, avoiding CLS. */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial");
+  ascent-override: 90.44%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+  size-adjust: 107.12%;
+}
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New");
+  ascent-override: 102.02%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+  size-adjust: 99.98%;
 }
 
 * { box-sizing: border-box; }
@@ -682,7 +703,9 @@ section {
   color: var(--accent);
   filter: blur(calc((1 - min(var(--p, 0) * 2, 1)) * 14px));
   transform: scale(calc(1 + (1 - min(var(--p, 0) * 2, 1)) * 0.12));
-  opacity: calc(0.3 + min(var(--p, 0) * 2, 1) * 0.7);
+  /* Floor of 0.6 (not 0) keeps this at/above 3:1 contrast against --bg
+     even at the dimmest, pre-scroll-reveal state. */
+  opacity: calc(0.6 + min(var(--p, 0) * 2, 1) * 0.4);
   will-change: transform, filter, opacity;
 }
 .claim-sub { color: var(--muted); font-size: clamp(0.95rem, 2vw, 1.02rem); max-width: 440px; }
