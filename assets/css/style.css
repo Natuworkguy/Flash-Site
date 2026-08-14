@@ -493,19 +493,12 @@ section {
   font-family: var(--font-mono);
   font-size: 0.86rem;
   padding: 22px 20px 30px;
-  height: 340px;
+  height: 400px;
   overflow: hidden;
   color: #d9d5cc;
   white-space: pre-wrap;
   word-break: break-word;
 }
-.term-cursor {
-  color: var(--accent);
-  animation: blink 1s step-end infinite;
-  font-size: 0.8rem;
-}
-@keyframes blink { 50% { opacity: 0; } }
-
 /* =============== WATCH SECTION =============== */
 
 .watch {
