@@ -13,10 +13,12 @@
         <tr><td><code>/unset</code></td><td>Remove an env var</td></tr>
         <tr><td><code>/refresh</code></td><td>Reload your config from disk</td></tr>
         <tr><td><code>/clear</code></td><td>Clear the conversation history</td></tr>
+        <tr><td><code>/image</code> <span class="cmd-alt">&lt;path&gt; &lt;prompt&gt;</span></td><td>Hand the model an image alongside your prompt</td></tr>
         <tr><td><code>/bye</code></td><td>Exit the application</td></tr>
       </tbody>
     </table>
     <p class="usage-desc usage-note">FLASH suggests slash commands as you type, so you never have to remember the exact one you're after.</p>
+    <p class="usage-desc usage-note"><code>/image</code> suggests matching files and folders from disk as you type the path, filtered to supported image types (<code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.webp</code>, <code>.gif</code>, <code>.bmp</code>). Paths with spaces are quoted automatically, so they always parse correctly.</p>
   </div>
 
   <div class="usage-card reveal">
