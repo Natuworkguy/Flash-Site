@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 68" width="900" height="204" role="img" aria-label="FLASH">
+  <g transform="translate(-16 -8) scale(4)" shape-rendering="crispEdges">
+    <rect x="4"  y="2"  width="13" height="1" fill="#FFD23F"/>
+    <rect x="4"  y="3"  width="13" height="1" fill="#FFC21F"/>
+    <rect x="5"  y="4"  width="11" height="1" fill="#FFA219"/>
+    <rect x="5"  y="5"  width="5"  height="2" fill="#FF9412"/>
+    <rect x="6"  y="7"  width="5"  height="1" fill="#FF880C"/>
+    <rect x="6"  y="8"  width="10" height="2" fill="#FF7A00"/>
+    <rect x="7"  y="10" width="8"  height="1" fill="#FA6E05"/>
+    <rect x="7"  y="11" width="5"  height="2" fill="#F2620A"/>
+    <rect x="8"  y="13" width="5"  height="1" fill="#EB570E"/>
+    <rect x="8"  y="14" width="5"  height="1" fill="#E44E10"/>
+    <rect x="8"  y="15" width="5"  height="1" fill="#3FB8E8"/>
+    <rect x="9"  y="16" width="4"  height="1" fill="#2FA6DE"/>
+    <rect x="9"  y="17" width="3"  height="1" fill="#33C06A"/>
+    <rect x="10" y="18" width="2"  height="1" fill="#2BAE5E"/>
+  </g>
+  <text x="80" y="50" font-family="Cormorant Garamond, Garamond, serif" font-size="46" font-weight="400" letter-spacing="6.4" fill="#F3F2F2">FLASH</text>
+</svg>

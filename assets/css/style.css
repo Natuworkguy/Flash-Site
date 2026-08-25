@@ -219,7 +219,7 @@ section {
   color: var(--fg);
   flex-shrink: 0;
 }
-.brand-bolt { flex-shrink: 0; object-fit: contain; }
+.brand-logo { flex-shrink: 0; object-fit: contain; display: block; }
 
 .nav-links {
   display: flex;
