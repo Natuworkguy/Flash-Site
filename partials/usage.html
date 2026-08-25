@@ -18,7 +18,7 @@
       </tbody>
     </table>
     <p class="usage-desc usage-note">FLASH suggests slash commands as you type, so you never have to remember the exact one you're after.</p>
-    <p class="usage-desc usage-note"><code>/image</code> suggests matching files and folders from disk as you type the path, filtered to supported image types (<code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.webp</code>, <code>.gif</code>, <code>.bmp</code>). Paths with spaces are quoted automatically, so they always parse correctly.</p>
+    <p class="usage-desc usage-note"><code>/image</code> suggests matching files and folders from disk as you type the path, filtered to supported image types (<code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.webp</code>, <code>.gif</code>, <code>.bmp</code>). Paths with spaces are quoted automatically, so they always parse correctly. It's the explicit form: you can also just mention an image by name in an ordinary prompt.</p>
   </div>
 
   <div class="usage-card reveal">
@@ -37,10 +37,16 @@
     <span class="usage-index">03</span>
     <h3>Natural language</h3>
     <p class="usage-desc">
-      Just type what you want. If FLASH needs to see a file or run a command
-      to answer you, it invokes the <code>shell</code> tool on its own. It
-      can even search the web and show you exactly how it reasoned its way
-      to an answer.
+      Just type what you want. If FLASH needs to see a file, look at an
+      image, or run a command to answer you, it reaches for the right tool
+      on its own. It can even search the web and show you exactly how it
+      reasoned its way to an answer.
+    </p>
+    <p class="usage-desc usage-note">
+      That includes images. Name one in an ordinary sentence and FLASH
+      opens it: <em>"Look at mockup.png and make a site that looks like
+      it."</em> The <code>/image</code> command is there when you want to be
+      explicit, not a requirement.
     </p>
     <p class="usage-desc usage-note">
       By default, FLASH notifies you and asks for your input before running
