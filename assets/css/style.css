@@ -54,7 +54,12 @@ html {
   scroll-behavior: smooth;
   background: var(--bg);
   overflow-x: hidden;
+  /* Page scrollbar hidden; .scroll-progress carries the position feedback.
+     Scrolling itself is untouched (wheel, trackpad, keys, touch). */
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* legacy Edge/IE */
 }
+html::-webkit-scrollbar { display: none; }  /* Chrome, Safari */
 
 body {
   margin: 0;
