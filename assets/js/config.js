@@ -22,14 +22,28 @@ export const SITE = {
     pullModel: "ollama pull llama3.1",
     run: "python3 run.py",
   },
-  // Hot-swap point: bump these five fields to promote a new Flash Onyx
-  // release across the entire site in one edit.
+  // Hot-swap point: bump these fields to promote a new Flash Onyx release
+  // across the entire site in one edit. Tags carry a size from Onyx 2 on, so
+  // a bare `flash-onyx-2` does not resolve: every model reference needs `:12b`
+  // or `:31b`.
   onyx: {
-    version: "Flash Onyx 1",
+    version: "Flash Onyx 2",
     releaseTag: "Current release",
-    pullId: "Natuworkguy/flash-onyx-1",
-    pullCmd: "ollama pull Natuworkguy/flash-onyx-1",
-    buildCmd: "ollama create flash-onyx-1 -f models/flash-onyx-1.Modelfile",
-    baseModel: "llama3.1",
+    baseModel: "gemma4",
+    sizes: "12B / 31B",
+    context: "32K",
+    input: "text + images",
+    small: {
+      tag: "flash-onyx-2:12b",
+      label: "12B, the everyday driver",
+      pullCmd: "ollama pull Natuworkguy/flash-onyx-2:12b",
+    },
+    large: {
+      tag: "flash-onyx-2:31b",
+      label: "31B, the flagship",
+      pullCmd: "ollama pull Natuworkguy/flash-onyx-2:31b",
+    },
+    buildCmd: "python3 models/build.py models/flash-onyx-2.Modelfile",
+    selectCmd: "/model flash-onyx-2:31b",
   },
 };

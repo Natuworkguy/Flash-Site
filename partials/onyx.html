@@ -3,11 +3,25 @@
     <p class="onyx-kicker reveal-blur">THE FLAGSHIP MODEL</p>
     <h2 class="onyx-title reveal-blur">Meet <span class="glow-word">{{onyx.version}}.</span><span class="onyx-badge">{{onyx.releaseTag}}</span></h2>
     <p class="onyx-sub reveal-blur">
-      {{onyx.version}} is not a generic model wearing a costume. It is
-      {{onyx.baseModel}}, retrained and retuned to think and act like FLASH:
-      sharper reasoning, faster tool calls, and replies that read like a
-      text from a coworker, not an essay from a textbook.
+      {{onyx.version}} is not a generic model wearing a costume. It's
+      {{onyx.baseModel}}, retrained and retuned to think and act like FLASH.
+      Onyx 1 answered you. Onyx 2 finishes the job, says what it actually
+      verified, and tells you what's still open.
     </p>
+
+    <ul class="onyx-specs reveal-blur">
+      <li><span>Base</span><strong>{{onyx.baseModel}}</strong></li>
+      <li><span>Sizes</span><strong>{{onyx.sizes}}</strong></li>
+      <li><span>Context</span><strong>{{onyx.context}}</strong></li>
+      <li><span>Input</span><strong>{{onyx.input}}</strong></li>
+    </ul>
+
+    <ul class="onyx-new reveal-blur">
+      <li><strong>It finishes.</strong> Ask for five things and you get an accounting of all five, each one marked done with the proof or open with the blocker. Say <em>continue</em> and it picks up where it stopped instead of starting over.</li>
+      <li><strong>It doesn't make things up.</strong> A flag it hasn't seen, a path it hasn't read, output it hasn't run: it says so instead of inventing something that looks right, and keeps what it ran separate from what it believes.</li>
+      <li><strong>It reads images.</strong> Show it the stack trace, the design you're matching, the UI that renders badly. It reads the actual pixels instead of asking you to retype them, and calls out anything too small or blurred to read.</li>
+      <li><strong>It guards your git history.</strong> Never amends or rebases what's already pushed, reads <code>git status</code> before it moves anything, and asks before touching untracked work that isn't its own.</li>
+    </ul>
 
     <div class="onyx-compare reveal-blur">
       <div class="compare-prompt">
@@ -31,10 +45,17 @@
 
     <div class="code-block reveal-blur">
       <div class="code-block-head">
-        <span>Pull the latest release</span>
-        <button class="copy-btn" data-copy="{{onyx.pullCmd}}">Copy</button>
+        <span>Pull it: {{onyx.small.label}}</span>
+        <button class="copy-btn" data-copy="{{onyx.small.pullCmd}}">Copy</button>
       </div>
-      <pre><code>{{onyx.pullCmd}}</code></pre>
+      <pre><code>{{onyx.small.pullCmd}}</code></pre>
+    </div>
+    <div class="code-block reveal-blur">
+      <div class="code-block-head">
+        <span>Pull it: {{onyx.large.label}}</span>
+        <button class="copy-btn" data-copy="{{onyx.large.pullCmd}}">Copy</button>
+      </div>
+      <pre><code>{{onyx.large.pullCmd}}</code></pre>
     </div>
     <div class="code-block reveal-blur">
       <div class="code-block-head">
@@ -43,6 +64,14 @@
       </div>
       <pre><code>{{onyx.buildCmd}}</code></pre>
     </div>
+
+    <p class="onyx-note reveal-blur">
+      Coming from Onyx 1? Tags carry a size now, so a bare
+      <code>flash-onyx-2</code> won't resolve: use <code>{{onyx.small.tag}}</code>
+      or <code>{{onyx.large.tag}}</code>, and switch with
+      <code>{{onyx.selectCmd}}</code>. Twice the context isn't free, so it wants
+      more memory than Onyx 1 did. Onyx 1 is still here and still builds.
+    </p>
   </div>
   <div class="onyx-visual reveal">
     <div class="onyx-orb-wrap" data-scrub>

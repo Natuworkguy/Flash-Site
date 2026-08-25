@@ -827,7 +827,73 @@ section {
   margin-left: 10px;
   font-weight: 700;
 }
-.onyx-sub { color: var(--muted); margin: 0 0 32px; max-width: 480px; font-size: clamp(0.95rem, 2vw, 1rem); }
+.onyx-sub { color: var(--muted); margin: 0 0 24px; max-width: 480px; font-size: clamp(0.95rem, 2vw, 1rem); }
+
+.onyx-specs {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 26px;
+  padding: 0;
+}
+.onyx-specs li {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg-raise);
+}
+.onyx-specs span {
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted-2);
+}
+.onyx-specs strong {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.onyx-new {
+  list-style: none;
+  display: grid;
+  gap: 13px;
+  margin: 0 0 30px;
+  padding: 0;
+  max-width: 520px;
+}
+.onyx-new li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.onyx-new li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+.onyx-new strong { color: var(--fg); font-weight: 700; }
+.onyx-new em { color: var(--accent-2); font-style: normal; font-weight: 600; }
+
+.onyx-note {
+  margin: 16px 0 0;
+  max-width: 520px;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--muted-2);
+}
 
 .onyx-compare {
   display: flex;
