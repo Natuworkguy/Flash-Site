@@ -24,26 +24,26 @@ export const SITE = {
   },
   // Hot-swap point: bump these fields to promote a new Flash Onyx release
   // across the entire site in one edit. Tags carry a size from Onyx 2 on, so
-  // a bare `flash-onyx-2` does not resolve: every model reference needs `:12b`
-  // or `:31b`.
+  // a bare `flash-onyx-2.1` does not resolve: every model reference needs
+  // `:12b` or `:31b`.
   onyx: {
-    version: "Flash Onyx 2",
+    version: "Flash Onyx 2.1",
     releaseTag: "Current release",
     baseModel: "gemma4",
     sizes: "12B / 31B",
     context: "32K",
     input: "text + images",
     small: {
-      tag: "flash-onyx-2:12b",
+      tag: "flash-onyx-2.1:12b",
       label: "12B, the everyday driver",
-      pullCmd: "ollama pull Natuworkguy/flash-onyx-2:12b",
+      pullCmd: "ollama pull Natuworkguy/flash-onyx-2.1:12b",
     },
     large: {
-      tag: "flash-onyx-2:31b",
+      tag: "flash-onyx-2.1:31b",
       label: "31B, the flagship",
-      pullCmd: "ollama pull Natuworkguy/flash-onyx-2:31b",
+      pullCmd: "ollama pull Natuworkguy/flash-onyx-2.1:31b",
     },
-    buildCmd: "python3 models/build.py models/flash-onyx-2.Modelfile",
-    selectCmd: "/model flash-onyx-2:31b",
+    buildCmd: "python3 models/build.py models/flash-onyx-2.1.Modelfile",
+    selectCmd: "/model flash-onyx-2.1:31b",
   },
 };

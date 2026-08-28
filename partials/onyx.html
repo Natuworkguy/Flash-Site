@@ -5,8 +5,8 @@
     <p class="onyx-sub reveal-blur">
       {{onyx.version}} is not a generic model wearing a costume. It's
       {{onyx.baseModel}}, retrained and retuned to think and act like FLASH.
-      Onyx 1 answered you. Onyx 2 finishes the job, says what it actually
-      verified, and tells you what's still open.
+      Onyx 2 finished the job. Onyx 2.1 finishes it sooner and in far fewer
+      words, and still tells you what it verified and what's still open.
     </p>
 
     <ul class="onyx-specs reveal-blur">
@@ -17,6 +17,7 @@
     </ul>
 
     <ul class="onyx-new reveal-blur">
+      <li><strong>It gets to the point, faster.</strong> Answers run about 70% the length of Onyx 2's, and it starts writing in roughly half the time: the instructions it loads before your first word went from 27K tokens to 14.2K, which hands about 18K of the window back to you instead of 5K.</li>
       <li><strong>It finishes.</strong> Ask for five things and you get an accounting of all five, each one marked done with the proof or open with the blocker. Say <em>continue</em> and it picks up where it stopped instead of starting over.</li>
       <li><strong>It doesn't make things up.</strong> A flag it hasn't seen, a path it hasn't read, output it hasn't run: it says so instead of inventing something that looks right, and keeps what it ran separate from what it believes.</li>
       <li><strong>It reads images.</strong> Show it the stack trace, the design you're matching, the UI that renders badly. It reads the actual pixels instead of asking you to retype them, and calls out anything too small or blurred to read.</li>
@@ -66,11 +67,13 @@
     </div>
 
     <p class="onyx-note reveal-blur">
-      Coming from Onyx 1? Tags carry a size now, so a bare
-      <code>flash-onyx-2</code> won't resolve: use <code>{{onyx.small.tag}}</code>
-      or <code>{{onyx.large.tag}}</code>, and switch with
-      <code>{{onyx.selectCmd}}</code>. Twice the context isn't free, so it wants
-      more memory than Onyx 1 did. Onyx 1 is still here and still builds.
+      Coming from Onyx 2? Nothing else changes: swap the tag and carry on. Both
+      releases carry a size, so <code>flash-onyx-2</code> never resolved on its
+      own and <code>flash-onyx-2.1</code> won't either: use
+      <code>{{onyx.small.tag}}</code> or <code>{{onyx.large.tag}}</code>, and
+      switch with <code>{{onyx.selectCmd}}</code>. Expect shorter replies by
+      default, ask for the long version when you want one. Onyx 2 and 1 are
+      still here and still build.
     </p>
   </div>
   <div class="onyx-visual reveal">
