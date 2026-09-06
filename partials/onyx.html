@@ -3,13 +3,10 @@
     <p class="onyx-kicker reveal-blur">THE FLAGSHIP MODEL</p>
     <h2 class="onyx-title reveal-blur">Meet <span class="glow-word">{{onyx.version}}.</span><span class="onyx-badge">{{onyx.releaseTag}}</span></h2>
     <p class="onyx-sub reveal-blur">
-      {{onyx.version}} is not a generic model wearing a costume. It's
-      {{onyx.baseModel}}, retrained and retuned to think and act like FLASH.
-      Onyx 2.2 gave it a far bigger window and sent it past code. Onyx 2.3 made
-      it hold every claim to a source. Onyx 2.4 makes it work the answer out
-      before it says one. It loads 64K of {{onyx.baseModel}}'s 256K ceiling,
-      with 8K of that held back for a single reply: a long file, its tests, and
-      the failing log all fit at once.
+      <strong>Our most capable model yet.</strong> {{onyx.baseModel}},
+      retrained and retuned to think and act like FLASH: 64K loaded, reads
+      images, and it now works the answer out before it says one. Runs on your
+      machine.
     </p>
 
     <ul class="onyx-specs reveal-blur">
@@ -21,10 +18,10 @@
     </ul>
 
     <ul class="onyx-new reveal-blur">
-      <li><strong>It works the number out before it states one.</strong> Answer first still holds for what it already knows. Anything it has to compute gets the short steps first, a last step that checks the result by a different route, and the answer once, at the end, next to the line that lets you check it. A reply that opened with one figure and worked out another was the worst thing 2.3 still did.</li>
-      <li><strong>It can't claim work it didn't do.</strong> "I ran", "I checked", "the help output shows": each one asserts a tool call happened, so with no tool behind it 2.4 doesn't say them. You get <em>"from memory, ripgrep has no such flag; <code>rg --help | grep frob</code> would settle it."</em> Every part it marks done quotes the test output or the grep match that proves it.</li>
-      <li><strong>No "Perfect!", no house style.</strong> The acknowledgement token is gone from the front of the turn, worst of all after a tool call, where it was congratulating output already on your screen. It watches its own shape too: three bullets of matching length read as generated even when every word is right, so what it found sets the shape instead of a template.</li>
-      <li><strong>Tool calls carry the command, nothing else.</strong> No comments, no narration typed into a shell call where you'd never see it land. Thinking goes in the reply, the call goes to the shell clean.</li>
+      <li><strong>It computes, then answers.</strong> Steps first, a check by a different route, the number once at the end. No figure stated before it was worked out.</li>
+      <li><strong>It can't claim work it didn't do.</strong> No tool call, no "I ran". You get <em>"from memory, ripgrep has no such flag; <code>rg --help | grep frob</code> would settle it,"</em> and every part it marks done quotes the proof.</li>
+      <li><strong>No "Perfect!". Ever.</strong> It opens with what came back, and it doesn't write every reply to the same four-line template.</li>
+      <li><strong>Tool calls carry the command, nothing else.</strong> No narration typed into a shell call where you'd never see it land.</li>
     </ul>
 
     <div class="onyx-compare reveal-blur">
@@ -97,18 +94,15 @@
     </div>
 
     <p class="onyx-note reveal-blur">
-      Coming from Onyx 2.2 or 2.3? Nothing else changes: swap the tag and carry
-      on. 2.4 is a prompt release, the same weights and the same ten sampling
-      lines as 2.3 behind a prompt that got 9 lines shorter, so the pull mostly
-      reuses layers you already have. Every tag from Onyx 2 on carries a size,
-      so a bare <code>flash-onyx-2.4</code> doesn't resolve: use
+      Coming from 2.2 or 2.3? Swap the tag and carry on: same weights, same
+      sampling, new prompt, so the pull reuses layers you already have. Every
+      tag from Onyx 2 on carries a size, so a bare
+      <code>flash-onyx-2.4</code> doesn't resolve: use
       <code>{{onyx.small.tag}}</code>, <code>{{onyx.large.tag}}</code>, or
       <code>{{onyx.cloud.tag}}</code>, and switch with
       <code>{{onyx.selectCmd}}</code>. Replies stay short by default, ask for
-      the long version when you want one. Onyx 2.3, 2.2, 2.1, 2, and 1 are all
-      still here and still build, and 2.3 has a
-      <code>flash-onyx-2.3:31b-cloudbase</code> tag of its own if you're
-      pinned to it.
+      the long version when you want one. Every older release still builds,
+      <code>flash-onyx-2.3:31b-cloudbase</code> included.
     </p>
   </div>
   <div class="onyx-visual reveal">
