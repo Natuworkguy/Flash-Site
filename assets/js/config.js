@@ -28,6 +28,7 @@ export const SITE = {
   // `:12b`, `:31b`, or `:31b-cloudbase`.
   onyx: {
     version: "Flash Onyx 2.4",
+    devlog: "https://dev.to/natuworkguy/series/43947",
     releaseTag: "Current release",
     baseModel: "gemma4",
     sizes: "12B / 31B",
