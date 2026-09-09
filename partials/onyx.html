@@ -64,9 +64,9 @@
       <pre><code>{{onyx.large.pullCmd}}</code></pre>
     </div>
 
-    <h3 class="onyx-subhead reveal-blur">Cloudbase: the 31B without the 19.9 GB</h3>
+    <h3 class="onyx-subhead reveal-blur"><span class="glow-word">Cloudbase</span>: the <span class="mono">31B</span> without the <span class="mono">19.9 GB</span></h3>
     <p class="onyx-sub reveal-blur">
-      New since 2.2. The <code>{{onyx.cloud.tag}}</code> tag ships the Onyx
+      <b>New since 2.2</b>. The <code>{{onyx.cloud.tag}}</code> tag ships the Onyx
       prompt and sampling with no weights behind them, pointed at
       <code>{{onyx.cloud.hostedBase}}</code>, a {{onyx.baseModel}} Ollama hosts:
       same behavior as the local 31B, <strong>{{onyx.cloud.downloadSize}} to
@@ -87,7 +87,7 @@
 
     <div class="onyx-claim is-cloud reveal-blur">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 16.5a3.5 3.5 0 0 0-.5-6.96A5.5 5.5 0 0 0 6.7 10.6 3.7 3.7 0 0 0 7 16.5"/><path d="M12 19v-7m0 0-3 3m3-3 3 3"/></svg>
-      <p><strong>Read this part before you use it.</strong> Cloudbase sends your prompts to a hosted base model, so it walks straight past the <em>local</em> in Fast Local Agent SHell. It's the right call for trying Onyx before a {{onyx.cloud.localSize}} pull, for a laptop that can't give a 12B enough speed to be usable, or is unable to hold one at all, and for work you'd be fine posting publicly. Keep anything sensitive on <code>{{onyx.small.tag}}</code> or <code>{{onyx.large.tag}}</code>, where nothing leaves the machine.</p>
+      <p><strong>Read this part before you use it.</strong> Cloudbase sends your prompts to a <i>hosted</i> base model, so it walks straight past the <em>local</em> in Fast Local Agent SHell. It's the right call for trying Onyx before a {{onyx.cloud.localSize}} pull, for a laptop that can't give a 12B enough speed to be usable, or is unable to hold one at all, and for work you'd be fine posting publicly. Keep anything sensitive on <code>{{onyx.small.tag}}</code> or <code>{{onyx.large.tag}}</code>, where nothing leaves the machine.</p>
     </div>
 
     <div class="code-block reveal-blur">

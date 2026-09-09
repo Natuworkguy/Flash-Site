@@ -27,6 +27,8 @@
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.mono { font-family: var(--font-mono) }
+
 /* Metric-matched local fallbacks so the Inter/JetBrains Mono webfont swap
    (font-display: swap) doesn't reflow the page: these size-adjusted local
    faces occupy the same box the real webfont will, so swapping in the
