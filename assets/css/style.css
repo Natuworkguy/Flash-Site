@@ -1015,11 +1015,20 @@ section {
 .onyx-orb {
   position: absolute; inset: 30px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 4.5rem;
   background: radial-gradient(circle at 35% 30%, var(--accent-2), var(--accent) 55%, #4a2308 100%);
-  box-shadow: 0 0 80px 10px var(--accent-glow), inset -10px -10px 30px rgba(0,0,0,0.4);
   transform: translateY(calc((var(--p, 0) - 0.5) * -28px)) scale(calc(0.94 + var(--p, 0) * 0.1));
   will-change: transform;
 }
+
+.onyx-orb + .onyx-orb span {
+  box-shadow: 0 0 80px 10px var(--accent-glow), inset -10px -10px 30px rgba(0,0,0,0.4);
+}
+
 .onyx-orb-ring {
   position: absolute; inset: 0;
   border-radius: 50%;
