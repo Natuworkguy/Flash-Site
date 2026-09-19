@@ -90,6 +90,32 @@ code {
 
 ::selection { background: var(--accent-glow); color: #fff; }
 
+/* ---------- animated dithered cloud field ---------- */
+
+/* A low-resolution canvas stretched across the top of the document. The
+   browser does the upscaling with nearest-neighbour sampling, which is what
+   turns the buffer's ordered-dither pattern into chunky, visible dots.
+   Absolutely positioned rather than fixed, so it scrolls away with the hero
+   instead of sitting under the whole page. */
+.bg-dither {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 118vh;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+  image-rendering: pixelated;
+  /* Feather the last stretch so the field resolves into the page background
+     instead of ending on a hard edge. */
+  mask-image: linear-gradient(to bottom, #000 0%, #000 62%, transparent 100%);
+}
+
+@media (max-width: 640px) {
+  .bg-dither { height: 96vh; }
+}
+
 /* ---------- background texture ---------- */
 
 .grid-overlay {
@@ -163,6 +189,98 @@ section {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* ---------- scroll-driven 3D ---------- */
+
+/* assets/js/scroll3d.js keeps --enter (0 -> 1 as the element arrives) and
+   --p (0 -> 1 across its whole travel) up to date. Everything below is a
+   preset: a set of offsets describing where the element sits at --enter 0,
+   interpolated to rest by --inv.
+
+   Each element carries its own perspective() inside `transform` rather than
+   inheriting one from a parent. That keeps the presets self-contained, so
+   adding one to an element never depends on its container having been set up
+   as a 3D context. */
+
+[data-a3d] {
+  --enter: 0;
+  --p: 0.5;
+  --inv: calc(1 - var(--enter));
+  --o0: 0;
+
+  /* Custom properties inherit, so an animated element nested inside another
+     would otherwise pick up its parent's offsets and animate along a preset
+     it was never given. Every preset variable is reset here and re-set by the
+     preset rules below, which are equal in specificity and win on order. */
+  --tx: 0px; --ty: 0px; --tz: 0px;
+  --rx: 0deg; --ry: 0deg; --rz: 0deg;
+  --sc: 1;
+  --origin: 50% 50%;
+
+  transform:
+    perspective(var(--persp, 1200px))
+    translate3d(
+      calc(var(--tx) * var(--inv)),
+      calc(var(--ty) * var(--inv)),
+      calc(var(--tz) * var(--inv))
+    )
+    rotateX(calc(var(--rx) * var(--inv)))
+    rotateY(calc(var(--ry) * var(--inv)))
+    rotateZ(calc(var(--rz) * var(--inv)))
+    scale(calc(1 - (1 - var(--sc)) * var(--inv)));
+
+  opacity: calc(var(--o0) + (1 - var(--o0)) * var(--enter));
+  transform-origin: var(--origin);
+  backface-visibility: hidden;
+}
+
+/* Promoted only while in view, by the observer in scroll3d.js. */
+.a3d-on { will-change: transform, opacity; }
+
+[data-a3d="rise"]  { --ty: 84px;  --tz: -220px; --rx: -22deg; --origin: 50% 100%; }
+[data-a3d="drop"]  { --ty: -56px; --tz: -180px; --rx: 24deg;  --origin: 50% 0%; }
+/* Short-travel variant for list rows and table rows. The full `rise` offset
+   is most of a row's height, so staggered siblings would visibly overlap each
+   other on the way in. */
+[data-a3d="rise-sm"] { --ty: 26px; --tz: -90px; --rx: -12deg; --origin: 50% 100%; }
+
+[data-a3d="zoom"]  { --tz: -340px; --rx: -14deg; --sc: 0.82; }
+
+/* Hinge presets: the element swings in from one edge, so a grid of them
+   reads as a set of panels folding into place. */
+[data-a3d="flip-l"] { --tx: -64px; --tz: -200px; --ry: -26deg; --origin: 0% 50%; }
+[data-a3d="flip-r"] { --tx: 64px;  --tz: -200px; --ry: 26deg;  --origin: 100% 50%; }
+
+/* Spins in around its own vertical axis; for small square things like icons,
+   where a hinge from an edge would read as a wobble rather than a turn. */
+[data-a3d="pop"] { --ry: -88deg; --tz: -60px; --sc: 0.6; }
+
+[data-a3d="swing"]   { --ty: 70px; --tz: -240px; --ry: -22deg; --rz: -5deg; --origin: 0% 100%; }
+[data-a3d="swing-r"] { --ty: 70px; --tz: -240px; --ry: 22deg;  --rz: 5deg;  --origin: 100% 100%; }
+
+/* Continuous presets read --p instead of --enter, so they keep moving for as
+   long as the element is on screen rather than settling. They stay fully
+   opaque; only their depth changes. */
+[data-a3d="float"],
+[data-a3d="tilt"] { opacity: 1; }
+
+[data-a3d="float"] {
+  transform:
+    perspective(var(--persp, 1200px))
+    translate3d(0, calc((var(--p) - 0.5) * -70px), calc((var(--p) - 0.5) * 90px))
+    rotateX(calc((var(--p) - 0.5) * -12deg));
+}
+
+[data-a3d="tilt"] {
+  transform:
+    perspective(var(--persp, 900px))
+    rotateX(calc((var(--p) - 0.5) * -18deg))
+    translate3d(0, 0, calc((0.5 - var(--p)) * 44px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-a3d] { transform: none; opacity: 1; }
 }
 
 /* ---------- reveal animations (one-shot, on first view) ---------- */
@@ -338,41 +456,6 @@ section {
   margin: 0 auto;
 }
 
-.hero-lights {
-  position: absolute;
-  top: -10%;
-  bottom: 0;
-  left: 50%;
-  width: 100vw;
-  transform: translateX(-50%);
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
-}
-.beam {
-  position: absolute;
-  top: 0;
-  width: 140px;
-  height: 100%;
-  filter: blur(60px);
-  opacity: 0.35;
-  border-radius: 100%;
-  animation: drift 14s ease-in-out infinite;
-}
-.beam-1 { left: 4%;  background: var(--violet); animation-delay: 0s; }
-.beam-2 { left: 22%; background: var(--pink); width: 90px; animation-delay: -3s; }
-.beam-3 { right: 18%; background: var(--accent); width: 180px; animation-delay: -6s; }
-.beam-4 { right: 2%; background: var(--violet); width: 100px; animation-delay: -9s; }
-
-@keyframes drift {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
-  50% { transform: translateY(40px) scale(1.15); opacity: 0.5; }
-}
-@media (prefers-reduced-motion: reduce) { .beam { animation: none; } }
-@media (max-width: 640px) {
-  .beam { filter: blur(42px); opacity: 0.25; }
-}
-
 .hero-inner { text-align: center; position: relative; }
 
 .hero-title {
@@ -425,10 +508,12 @@ section {
   padding: 0;
   cursor: pointer;
   box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  transition: translate 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 .video-embed:hover {
-  transform: translateY(-2px);
+  /* `translate`, not `transform`: the scroll-driven 3D matrix lives on
+     `transform`, and setting it here would replace the whole entrance. */
+  translate: 0 -2px;
   box-shadow: 0 26px 70px -18px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--accent-dim);
 }
 .video-embed:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -673,7 +758,7 @@ section {
 .host-card.active {
   border-color: var(--accent-dim);
   box-shadow: 0 0 0 1px var(--accent-dim), 0 12px 40px -12px var(--accent-glow);
-  transform: translateY(-3px);
+  translate: 0 -3px;
 }
 .host-swap { color: var(--muted-2); }
 
@@ -770,10 +855,12 @@ section {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 26px 24px;
-  transition: transform 0.35s var(--ease), border-color 0.35s, background 0.35s;
+  transition: translate 0.35s var(--ease), border-color 0.35s, background 0.35s;
 }
 .feature-card:hover {
-  transform: translateY(-4px);
+  /* `translate`, not `transform`: the scroll-driven 3D matrix lives on
+     `transform`, and setting it here would replace the whole entrance. */
+  translate: 0 -4px;
   border-color: var(--accent-dim);
   background: var(--bg-raise);
 }
