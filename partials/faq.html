@@ -1,0 +1,91 @@
+<h2 class="section-title">The questions you're already asking.</h2>
+<p class="section-sub">Straight answers, including where FLASH isn't the right call.</p>
+
+<div class="faq-list">
+  <details class="faq-item" open>
+    <summary><span>Are local models actually good enough for this?</span><span class="faq-mark" aria-hidden="true"></span></summary>
+    <div class="faq-body">
+      <p>
+        For terminal work (read a file, run a command, explain what
+        broke, make the edit), yes. That is the narrow job
+        <a href="#onyx">Flash Onyx</a> is tuned for: answer short, call the
+        right tool, and never claim work it didn't do.
+      </p>
+      <p>
+        Where a frontier cloud model still wins is long, open-ended reasoning
+        over a large codebase. If that's your day, FLASH is the wrong tool and
+        we'd rather you knew now. If you want to judge Onyx before committing
+        to a {{onyx.cloud.localSize}} download, the
+        <code>{{onyx.cloud.tag}}</code> tag runs the same prompt and sampling
+        on a hosted base.
+      </p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary><span>What do I need to run it?</span><span class="faq-mark" aria-hidden="true"></span></summary>
+    <div class="faq-body">
+      <p>
+        <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>,
+        and enough free memory to hold whichever model you pick. Onyx
+        {{onyx.small.tag}} is a 7 GB pull and is the everyday driver;
+        {{onyx.large.tag}} is {{onyx.cloud.localSize}}. Rule of thumb: if
+        Ollama can serve it, FLASH can drive it.
+      </p>
+      <p>
+        FLASH isn't tied to Onyx either. Point it at any tool-calling model
+        Ollama serves, on this machine or another box on your network.
+      </p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary><span>Will it run commands on my machine without asking?</span><span class="faq-mark" aria-hidden="true"></span></summary>
+    <div class="faq-body">
+      <p>
+        Not by default. FLASH stops and asks before every shell command it
+        wants to run. Autonomous mode exists, <code>/auto on</code>, and
+        it does exactly what it sounds like, so it's opt-in and best kept to
+        directories you trust.
+      </p>
+      <p>
+        Anything you type into a <code>!</code> command yourself, passwords
+        included, goes straight to your terminal's masked input. FLASH never
+        sees it and never logs it.
+      </p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary><span>Is it really free, or free-for-now?</span><span class="faq-mark" aria-hidden="true"></span></summary>
+    <div class="faq-body">
+      <p>
+        MIT licensed, and the whole thing is in the
+        <a href="{{github}}" target="_blank" rel="noopener">repository</a>.
+        No account, no API key, no paid tier, no usage metering. There is no
+        server for us to bill you for, because the model is running on your
+        hardware. Your only running cost is electricity.
+      </p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary><span>How is this different from the AI CLI I already use?</span><span class="faq-mark" aria-hidden="true"></span></summary>
+    <div class="faq-body">
+      <p>
+        If it is a cloud CLI, the tools run locally in both, so that part
+        looks identical. The difference is where the thinking happens: theirs
+        sends your code to a server on every request, FLASH keeps the model on
+        your machine.
+      </p>
+      <p>
+        If it is a bring-your-own-key agent like Pi, Aider or OpenCode, it can
+        point at a local model too. Those ship a harness and leave the model to
+        you, so how the agent behaves is whatever your model happens to do.
+        FLASH ships <a href="#onyx">Onyx</a> tuned for this loop, and local is
+        not a backend you configure here, it is the only mode there is.
+        <a href="#compare">Both compared here.</a>
+      </p>
+    </div>
+  </details>
+</div>

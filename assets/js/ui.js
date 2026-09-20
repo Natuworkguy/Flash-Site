@@ -1,7 +1,6 @@
 export function initUI() {
   initNavScroll();
   initMobileNav();
-  initReveal();
   initHostToggle();
   initTabs();
   initOsToggle();
@@ -43,28 +42,6 @@ function initMobileNav() {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") close();
   });
-}
-
-function initReveal() {
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const els = document.querySelectorAll(".reveal, .reveal-blur");
-  if (reduceMotion) {
-    els.forEach((el) => el.classList.add("in-view"));
-    return;
-  }
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          entry.target.style.setProperty("--reveal-delay", `${(i % 6) * 0.06}s`);
-          entry.target.classList.add("in-view");
-          io.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
-  );
-  els.forEach((el) => io.observe(el));
 }
 
 function initHostToggle() {

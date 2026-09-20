@@ -1,25 +1,73 @@
 <div class="hero-inner">
-  <h1 class="hero-title reveal">
-    FLASH <span class="muted-line">isn't just a CLI.</span><br />
-    <span class="accent-glow-text">It's the terminal, evolved.</span>
+  <a class="hero-badge" href="#onyx">
+    <span class="hero-badge-pip" aria-hidden="true"></span>
+    <strong>{{onyx.version}}</strong>
+    <span class="hero-badge-text">is out: {{onyx.sizes}}, on your own hardware</span>
+    <span class="hero-badge-arrow" aria-hidden="true">-&gt;</span>
+  </a>
+
+  <!-- No hard line break: at narrow widths a forced break stranded "that" on
+       a line of its own. The accent span carries the emphasis instead, and the
+       headline is free to wrap wherever it fits. -->
+  <h1 class="hero-title">
+    The AI coding agent that
+    <span class="accent-glow-text">never leaves your machine.</span>
   </h1>
 
-  <p class="hero-sub reveal">
-    The first command line interface fused with real local intelligence. FLASH
-    talks directly to your own Ollama models, local or remote, and executes
-    real shell commands. No cloud round trip, no black box: just raw
-    capability, running entirely on hardware you control.
+  <p class="hero-sub">
+    FLASH is a real agent in your terminal: it reads your files, runs your
+    commands, and does the work. The model runs on <strong>your</strong>
+    hardware, not someone else's server, so your code never gets uploaded.
+    Free, open source, no API key.
   </p>
 
-  <div class="hero-cta reveal">
-    <a class="btn btn-solid btn-lg" href="#install">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 20h16"/></svg>
-      <span>Install FLASH</span>
+  <!-- The install line is the conversion point for a CLI, so it sits above the
+       fold rather than six sections down. The OS tabs reuse the same
+       data-os wiring as the install section, which keeps the two in sync and
+       auto-selects Windows from the user agent. -->
+  <div class="hero-install">
+    <div class="os-toggle hero-os" role="tablist" aria-label="Operating system">
+      <button class="os-tab active" data-os="unix" role="tab" aria-selected="true">macOS / Linux</button>
+      <button class="os-tab" data-os="windows" role="tab" aria-selected="false">Windows</button>
+    </div>
+
+    <div class="os-panel active" data-os-panel="unix">
+      <div class="install-line">
+        <code><span class="install-prompt" aria-hidden="true">$</span>{{installCmd}}</code>
+        <button class="copy-btn install-copy" data-copy="{{installCmd}}">Copy</button>
+      </div>
+    </div>
+
+    <div class="os-panel" data-os-panel="windows">
+      <div class="install-line">
+        <code><span class="install-prompt" aria-hidden="true">&gt;</span>{{windows.installCmd}}</code>
+        <button class="copy-btn install-copy" data-copy="{{windows.installCmd}}">Copy</button>
+      </div>
+    </div>
+
+    <p class="install-hint">
+      Under a minute to install. Then run <code>{{runCmd}}</code>. Needs
+      <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>
+      to serve the model locally.
+    </p>
+  </div>
+
+  <div class="hero-cta">
+    <a class="btn btn-solid btn-lg" href="#watch">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      <span>Watch it work</span>
     </a>
     <a class="btn btn-outline btn-lg" href="{{github}}" target="_blank" rel="noopener">View source</a>
   </div>
 
-  <div class="hero-terminal reveal" id="tilt-card" data-scrub>
+  <ul class="hero-trust">
+    <li>Free &amp; MIT licensed</li>
+    <li>macOS, Linux, Windows</li>
+    <li>No API key, no subscription</li>
+    <li>Your code never leaves</li>
+  </ul>
+
+  <div class="hero-terminal" id="tilt-card" data-scrub>
     <div class="term-glow" aria-hidden="true"></div>
     <div class="term-window">
       <div class="term-bar">

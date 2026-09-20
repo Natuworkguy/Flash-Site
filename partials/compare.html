@@ -1,0 +1,103 @@
+<p class="compare-kicker">THE DIFFERENCE THAT MATTERS</p>
+<h2 class="section-title">Most AI terminals<br /><span class="glow-word">upload your code.</span></h2>
+<p class="section-sub">
+  They run commands on your machine, which makes them look local. The model
+  doing the thinking still sits on someone else's server, and everything you
+  send it goes there first. FLASH moves the model too.
+</p>
+
+<div class="vs-table">
+  <div class="vs-head">
+    <span class="vs-row-label"></span>
+    <span class="vs-col vs-them">Cloud AI CLIs</span>
+    <span class="vs-col vs-us">FLASH</span>
+  </div>
+
+  <div class="vs-row">
+    <span class="vs-row-label">Where the model runs</span>
+    <span class="vs-col vs-them">Their servers</span>
+    <span class="vs-col vs-us">Your hardware</span>
+  </div>
+  <div class="vs-row">
+    <span class="vs-row-label">Your source code</span>
+    <span class="vs-col vs-them">Sent off on every request</span>
+    <span class="vs-col vs-us">Never leaves the machine</span>
+  </div>
+  <div class="vs-row">
+    <span class="vs-row-label">Cost</span>
+    <span class="vs-col vs-them">Subscription or per-token</span>
+    <span class="vs-col vs-us">Free, MIT licensed</span>
+  </div>
+  <div class="vs-row">
+    <span class="vs-row-label">Account and API key</span>
+    <span class="vs-col vs-them">Required</span>
+    <span class="vs-col vs-us">Neither</span>
+  </div>
+  <div class="vs-row">
+    <span class="vs-row-label">Rate limits</span>
+    <span class="vs-col vs-them">Yes</span>
+    <span class="vs-col vs-us">None. It's your GPU</span>
+  </div>
+  <div class="vs-row">
+    <span class="vs-row-label">Which model you get</span>
+    <span class="vs-col vs-them">Whatever they ship</span>
+    <span class="vs-col vs-us">Any Ollama model, or Flash Onyx</span>
+  </div>
+  <div class="vs-row">
+    <span class="vs-row-label">Offline and airgapped</span>
+    <span class="vs-col vs-them">Doesn't run</span>
+    <span class="vs-col vs-us">Runs</span>
+  </div>
+</div>
+
+<p class="vs-foot">
+  The one exception is opt-in and labelled before you pull it: a
+  <a href="#onyx">cloudbase</a> tag runs the model on a hosted base, for
+  trying Onyx without a {{onyx.cloud.localSize}} download.
+</p>
+
+<!-- The sophisticated objection. Anyone who knows the space will name a
+     BYOK agent that can point at a local endpoint, so it gets answered
+     head-on rather than left for them to raise. -->
+<div class="vs-aside">
+  <h3 class="vs-aside-title">&ldquo;Pi and Aider can run local models too.&rdquo;</h3>
+  <p class="vs-aside-lede">
+    True. Agents like <a href="https://github.com/earendil-works/pi" target="_blank" rel="noopener">Pi</a>,
+    Aider and OpenCode will happily talk to a model on your own box. They're
+    good tools. The difference isn't whether local is <em>possible</em>, it's
+    what you get handed when you start.
+  </p>
+
+  <ol class="vs-aside-points">
+    <li>
+      <strong>They ship a harness. FLASH ships both halves.</strong>
+      Pi is model-agnostic by design: read, write, edit, bash, and whatever
+      model you point it at. That's genuinely flexible, and it also means the
+      agent's behaviour is entirely your model's problem. Aim a stock local
+      model at a generic tool loop and you get padding, hedging, an opening
+      &ldquo;Perfect!&rdquo;, and work reported as done that was never run.
+      <a href="#onyx">Flash Onyx</a> is a {{onyx.baseModel}} retrained against
+      exactly those failures, and it is one <code>ollama pull</code> away.
+    </li>
+    <li>
+      <strong>Local is the default, not a backend you wire up.</strong>
+      Multi-provider agents are built around provider keys and subscription
+      logins, with a local endpoint as one option among twenty. FLASH has no
+      other mode. There is no key to bring, no account to make, and no path
+      where your code quietly goes somewhere else because a fallback kicked in.
+    </li>
+    <li>
+      <strong>The shell is a real terminal, not a pipe.</strong>
+      Anything you run with <code>!</code> gets a live interactive channel, so
+      password prompts, <code>ssh</code>, and full-screen editors work instead
+      of hanging a captured stdout. Secrets you type go to your terminal's
+      masked input: FLASH never sees them.
+    </li>
+  </ol>
+
+  <p class="vs-aside-fair">
+    Where Pi wins: if you want one harness driving frontier cloud models, or
+    you're on Node and want to extend it in TypeScript, it's the better fit.
+    FLASH is for the case where the model itself has to stay on your hardware.
+  </p>
+</div>

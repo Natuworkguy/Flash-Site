@@ -1,6 +1,25 @@
-<h2 class="final-title reveal-blur">The terminal you know<br /><span class="glow-word">is already obsolete.</span></h2>
-<p class="final-sub reveal-blur">FLASH is what comes after: local, autonomous, and finally fast enough to think alongside you.</p>
-<div class="hero-cta reveal">
-  <a class="btn btn-solid btn-lg" href="#install">Install FLASH</a>
-  <a class="btn btn-outline btn-lg" href="{{github}}" target="_blank" rel="noopener">Star on GitHub</a>
+<h2 class="final-title">Your code doesn't need<br /><span class="glow-word">to leave the room.</span></h2>
+<p class="final-sub">
+  One line to install. A local model doing real work in your terminal, and
+  nothing on anyone else's server.
+</p>
+
+<div class="final-install">
+  <div class="os-panel active" data-os-panel="unix">
+    <div class="install-line">
+      <code><span class="install-prompt" aria-hidden="true">$</span>{{installCmd}}</code>
+      <button class="copy-btn install-copy" data-copy="{{installCmd}}">Copy</button>
+    </div>
+  </div>
+  <div class="os-panel" data-os-panel="windows">
+    <div class="install-line">
+      <code><span class="install-prompt" aria-hidden="true">&gt;</span>{{windows.installCmd}}</code>
+      <button class="copy-btn install-copy" data-copy="{{windows.installCmd}}">Copy</button>
+    </div>
+  </div>
+</div>
+
+<div class="hero-cta">
+  <a class="btn btn-outline btn-lg" href="#install">Other install options</a>
+  <a class="btn btn-ghost btn-lg" href="{{github}}" target="_blank" rel="noopener">Star on GitHub</a>
 </div>

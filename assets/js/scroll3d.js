@@ -34,58 +34,75 @@ const STAGGER_CYCLE = 4;
  *  page on first paint is not sitting at full rotation. */
 const PRIMER = 0.08;
 
+// The page uses three presets. Earlier there were eleven, and a grid of cards
+// that flipped alternately from left and right while the row above swung and
+// the one below dropped read as busy rather than considered. Uniform motion
+// lets the content be the thing that changes between sections.
+//
 // preset      the CSS preset in style.css that reads --enter / --p
 // stagger     true to offset successive matches, or a number to set the cycle
 // alternate   flip the preset left/right for every other match
 // persp       per-group perspective override, in px
 const GROUPS = [
+  { sel: ".hero-badge", preset: "pop" },
+  { sel: ".hero-title", preset: "rise" },
   { sel: ".hero-sub", preset: "rise" },
+  { sel: ".hero-install", preset: "rise" },
   { sel: ".hero-cta", preset: "rise" },
+  { sel: ".hero-trust", preset: "rise-sm" },
+
+  { sel: ".compare-kicker", preset: "rise-sm" },
+  { sel: ".vs-table", preset: "rise", persp: 1400 },
+  { sel: ".vs-aside", preset: "rise" },
+  { sel: ".vs-foot", preset: "rise-sm" },
 
   { sel: ".watch-kicker, .watch-title, .watch-sub", preset: "rise", stagger: true },
-  { sel: ".video-embed", preset: "zoom", persp: 1400 },
+  { sel: ".video-embed", preset: "rise", persp: 1400 },
 
   { sel: ".power-kicker, .power-title, .power-sub", preset: "rise", stagger: true },
-  { sel: ".cloud-note", preset: "flip-l" },
-  { sel: ".host-toggle", preset: "drop" },
-  { sel: ".host-card", preset: "flip-l", alternate: "flip-r" },
+  { sel: ".cloud-note", preset: "rise" },
+  { sel: ".host-toggle", preset: "rise" },
+  { sel: ".host-card", preset: "rise" },
   { sel: ".trust-note, .config-note, .onyx-note", preset: "rise", stagger: true },
 
-  { sel: ".claim-visual", preset: "flip-l", persp: 1000 },
-  { sel: ".claim-text", preset: "flip-r", persp: 1000 },
+  { sel: ".claim-visual", preset: "rise", persp: 1000 },
+  { sel: ".claim-text", preset: "rise", persp: 1000 },
 
   { sel: ".section-title", preset: "rise" },
   { sel: ".section-sub", preset: "rise" },
 
   // The nine feature cards are the centrepiece: they alternate which edge
   // they hinge on and resolve in sequence, so the grid assembles itself.
-  { sel: ".feature-card", preset: "flip-l", alternate: "flip-r", stagger: true, persp: 1100 },
+  { sel: ".feature-card", preset: "rise", stagger: true, persp: 1100 },
 
   { sel: ".feature-icon", preset: "pop", stagger: true },
 
-  { sel: ".onyx-kicker, .onyx-title, .onyx-sub", preset: "rise", stagger: true },
+  { sel: ".onyx-kicker, .onyx-title, .onyx-sub, .onyx-subhead", preset: "rise", stagger: true },
   { sel: ".onyx-specs li", preset: "rise-sm", stagger: true },
   { sel: ".onyx-new li", preset: "rise-sm", stagger: true },
-  { sel: ".onyx-visual", preset: "flip-r", persp: 1300 },
+  { sel: ".onyx-visual", preset: "rise", persp: 1300 },
   // .aura-field is deliberately absent: it centres itself with a transform
   // and is already scroll-driven through [data-scrub], so a preset here would
   // overwrite the centring and knock it out of position.
-  { sel: ".onyx-orb-wrap", preset: "float" },
+  { sel: ".onyx-orb-wrap", preset: "rise-sm" },
   { sel: ".onyx-compare .compare-row", preset: "rise-sm", stagger: true },
   { sel: ".onyx-devlog, .onyx-claim", preset: "rise", stagger: true },
 
-  { sel: ".tabs", preset: "drop" },
+  { sel: ".tabs", preset: "rise" },
   { sel: ".code-block", preset: "rise", stagger: true, persp: 1100 },
-  { sel: ".live-config", preset: "flip-l" },
+  { sel: ".live-config", preset: "rise" },
 
-  { sel: ".usage-card", preset: "swing", alternate: "swing-r", stagger: true, persp: 1200 },
+  { sel: ".usage-card", preset: "rise", stagger: true, persp: 1200 },
   { sel: ".usage-index", preset: "pop" },
   { sel: ".cmd-table tbody tr", preset: "rise-sm", stagger: 5, persp: 900 },
-  { sel: ".usage-card .mini-term", preset: "flip-r" },
+  { sel: ".usage-card .mini-term", preset: "rise" },
 
-  { sel: ".marquee", preset: "tilt" },
+  { sel: ".marquee", preset: "rise-sm" },
 
-  { sel: ".final-title", preset: "zoom", persp: 1500 },
+  { sel: ".faq-list", preset: "rise", persp: 1400 },
+
+  { sel: ".final-title", preset: "rise", persp: 1500 },
+  { sel: ".final-install", preset: "rise" },
   { sel: ".final-sub", preset: "rise" },
   { sel: ".final-cta .hero-cta", preset: "rise" },
 
@@ -121,11 +138,6 @@ export function initScroll3D() {
       const preset = group.alternate && i % 2 === 1 ? group.alternate : group.preset;
       el.setAttribute("data-a3d", preset);
       if (group.persp) el.style.setProperty("--persp", `${group.persp}px`);
-
-      // This system owns both transform and opacity for the elements it takes
-      // over. Leaving the 2D reveal classes on would mean two rules writing
-      // the same transform, with the more specific one silently winning.
-      el.classList.remove("reveal", "reveal-blur");
 
       const cycle = typeof group.stagger === "number" ? group.stagger : STAGGER_CYCLE;
       el._a3dStagger = group.stagger ? i % cycle : 0;
@@ -175,6 +187,16 @@ export function initScroll3D() {
     const vh = window.innerHeight || 1;
     const span = vh * ENTER_SPAN;
 
+    // An element only finishes arriving once its top has risen `span` pixels
+    // up the viewport. Near the end of the document there is no longer that
+    // much scroll left to give, so the last elements on the page, the whole
+    // footer included, would sit part-faded forever with no way to finish.
+    // Credit them with the scroll that can no longer happen: this is zero for
+    // most of the page and grows only as the document runs out.
+    const maxScroll = Math.max(0, document.documentElement.scrollHeight - vh);
+    const remaining = Math.max(0, maxScroll - window.scrollY);
+    const endBoost = Math.max(0, span - remaining);
+
     // Read every rect before writing any property: interleaving them forces a
     // layout per element instead of one for the whole batch.
     const list = Array.from(active);
@@ -184,7 +206,7 @@ export function initScroll3D() {
       const el = list[i];
       const rect = rects[i];
 
-      const travel = vh - rect.top - el._a3dStagger * STAGGER_PX;
+      const travel = vh - rect.top - el._a3dStagger * STAGGER_PX + endBoost;
       const enter = easeOutCubic(clamp01(travel / span + PRIMER));
       const p = clamp01((vh - rect.top) / (vh + rect.height));
 

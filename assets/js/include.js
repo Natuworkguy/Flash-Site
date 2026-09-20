@@ -5,7 +5,12 @@ export async function includePartials(root = document) {
   await Promise.all(
     nodes.map(async (node) => {
       const path = node.getAttribute("data-include");
-      const res = await fetch(path);
+      // `no-cache` revalidates with the server instead of trusting a
+      // heuristically-cached copy. Every visible section of this page is a
+      // runtime-fetched partial, so without it a returning visitor can keep
+      // seeing the previous deploy's copy until the cache ages out. A 304
+      // still costs nothing when the file hasn't changed.
+      const res = await fetch(path, { cache: "no-cache" });
       if (!res.ok) throw new Error(`Failed to load partial: ${path} (${res.status})`);
       const raw = await res.text();
       node.innerHTML = applyTokens(raw);

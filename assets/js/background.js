@@ -159,7 +159,7 @@ export function initBackground() {
   // sized to a tall copy block only reaches its full width at its own vertical
   // centre, so the ends of a wide headline sat outside it and got covered.
   function measureClearing(layerW, layerH) {
-    const parts = [".hero-title", ".hero-sub", ".hero-cta"]
+    const parts = [".hero-badge", ".hero-title", ".hero-sub", ".hero-install", ".hero-cta", ".hero-trust"]
       .map((sel) => document.querySelector(sel))
       .filter(Boolean)
       .map((el) => el.getBoundingClientRect())

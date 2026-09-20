@@ -1,15 +1,15 @@
 <div class="onyx-inner">
   <div class="onyx-copy">
-    <p class="onyx-kicker reveal-blur">THE FLAGSHIP MODEL</p>
-    <h2 class="onyx-title reveal-blur">Meet <span class="glow-word">{{onyx.version}}.</span><span class="onyx-badge">{{onyx.releaseTag}}</span></h2>
-    <p class="onyx-sub reveal-blur">
+    <p class="onyx-kicker">THE FLAGSHIP MODEL</p>
+    <h2 class="onyx-title">Meet <span class="glow-word">{{onyx.version}}.</span><span class="onyx-badge">{{onyx.releaseTag}}</span></h2>
+    <p class="onyx-sub">
       <strong>Our most capable model yet.</strong> {{onyx.baseModel}},
       retrained and retuned to think and act like Flash <i>should</i>: 64K loaded, reads
       images, and it now works the answer out before it says one. Runs on your
       machine.
     </p>
 
-    <ul class="onyx-specs reveal-blur">
+    <ul class="onyx-specs">
       <li><span>Base</span><strong>{{onyx.baseModel}}</strong></li>
       <li><span>Sizes</span><strong>{{onyx.sizes}}</strong></li>
       <li><span>Context</span><strong>{{onyx.context}}</strong></li>
@@ -17,19 +17,19 @@
       <li><span>Prompt</span><strong>648 lines</strong></li>
     </ul>
 
-    <ul class="onyx-new reveal-blur">
+    <ul class="onyx-new">
       <li><strong>It computes, then answers.</strong> Steps first, a check by a different route, the number once at the end. No figure stated before it was worked out.</li>
       <li><strong>It can't claim work it didn't do.</strong> No tool call, no "I ran". You get <em>"from memory, ripgrep has no such flag; <code>rg --help | grep frob</code> would settle it,"</em> and every part it marks done quotes the proof.</li>
       <li><strong>No "Perfect!". Ever.</strong> It opens with what came back, and it doesn't write every reply to the same four-line template.</li>
       <li><strong>Tool calls carry the command, nothing else.</strong> No narration typed into a shell call where you'd never see it land.</li>
     </ul>
 
-    <a class="onyx-devlog reveal-blur" href="{{onyx.devlog}}" target="_blank" rel="noopener">
+    <a class="onyx-devlog" href="{{onyx.devlog}}" target="_blank" rel="noopener">
       Devlog: how every Onyx release got built
       <span aria-hidden="true">-&gt;</span>
     </a>
 
-    <div class="onyx-compare reveal-blur">
+    <div class="onyx-compare">
       <div class="compare-prompt">
         <span class="compare-label">You</span>
         <p>is the dev server up?</p>
@@ -44,19 +44,19 @@
       </div>
     </div>
 
-    <div class="onyx-claim reveal-blur">
+    <div class="onyx-claim">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
       <p>Other AI services have started watermarking what they generate. {{onyx.version}} doesn't, and you don't have to take that on faith. A text watermark isn't in the weights, it's a keyed sampler a provider bolts on at generation time, behind an endpoint you can't read. Onyx has no closed part to hide one in: the whole model is a system prompt and ten <code>PARAMETER</code> lines, published in the repo and printable with <code>{{onyx.showCmd}}</code>, on open weights through an open source engine. <strong>No invisible tags. No watermarks. Ever.</strong> It doesn't even reach for an em dash: clean punctuation, on principle.</p>
     </div>
 
-    <div class="code-block reveal-blur">
+    <div class="code-block">
       <div class="code-block-head">
         <span>Pull it: {{onyx.small.label}}</span>
         <button class="copy-btn" data-copy="{{onyx.small.pullCmd}}">Copy</button>
       </div>
       <pre><code>{{onyx.small.pullCmd}}</code></pre>
     </div>
-    <div class="code-block reveal-blur">
+    <div class="code-block">
       <div class="code-block-head">
         <span>Pull it: {{onyx.large.label}}</span>
         <button class="copy-btn" data-copy="{{onyx.large.pullCmd}}">Copy</button>
@@ -64,8 +64,8 @@
       <pre><code>{{onyx.large.pullCmd}}</code></pre>
     </div>
 
-    <h3 class="onyx-subhead reveal-blur"><span class="glow-word">Cloudbase</span>: the <span class="mono">31B</span> without the <span class="mono">19.9 GB</span></h3>
-    <p class="onyx-sub reveal-blur">
+    <h3 class="onyx-subhead"><span class="glow-word">Cloudbase</span>: the <span class="mono">31B</span> without the <span class="mono">19.9 GB</span></h3>
+    <p class="onyx-sub">
       <b>New since 2.2</b>. The <code>{{onyx.cloud.tag}}</code> tag ships the Onyx
       prompt and sampling with no weights behind them, pointed at
       <code>{{onyx.cloud.hostedBase}}</code>, a {{onyx.baseModel}} Ollama hosts:
@@ -77,7 +77,7 @@
       moves the inference, not FLASH.
     </p>
 
-    <div class="code-block reveal-blur">
+    <div class="code-block">
       <div class="code-block-head">
         <span>Pull it: {{onyx.cloud.label}}</span>
         <button class="copy-btn" data-copy="{{onyx.cloud.pullCmd}}">Copy</button>
@@ -85,12 +85,12 @@
       <pre><code>{{onyx.cloud.pullCmd}}</code></pre>
     </div>
 
-    <div class="onyx-claim is-cloud reveal-blur">
+    <div class="onyx-claim is-cloud">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 16.5a3.5 3.5 0 0 0-.5-6.96A5.5 5.5 0 0 0 6.7 10.6 3.7 3.7 0 0 0 7 16.5"/><path d="M12 19v-7m0 0-3 3m3-3 3 3"/></svg>
       <p><strong>Read this part before you use it.</strong> Cloudbase sends your prompts to a <i>hosted</i> base model, so it walks straight past the <em>local</em> in Fast Local Agent SHell. It's the right call for trying Onyx before a {{onyx.cloud.localSize}} pull, for a laptop that can't give a 12B enough speed to be usable, or is unable to hold one at all, and for work you'd be fine posting publicly. Keep anything sensitive on <code>{{onyx.small.tag}}</code> or <code>{{onyx.large.tag}}</code>, where nothing leaves the machine.</p>
     </div>
 
-    <div class="code-block reveal-blur">
+    <div class="code-block">
       <div class="code-block-head">
         <span>Or build all three tags straight from the repo</span>
         <button class="copy-btn" data-copy="{{onyx.buildCmd}}">Copy</button>
@@ -98,7 +98,7 @@
       <pre><code>{{onyx.buildCmd}}</code></pre>
     </div>
 
-    <p class="onyx-note reveal-blur">
+    <p class="onyx-note">
       Coming from 2.2 or 2.3? Swap the tag and carry on: same weights, same
       sampling, new prompt, so the pull reuses layers you already have. Every
       tag from Onyx 2 on carries a size, so a bare
@@ -110,7 +110,7 @@
       <code>flash-onyx-2.3:31b-cloudbase</code> included.
     </p>
   </div>
-  <div class="onyx-visual reveal">
+  <div class="onyx-visual">
     <div class="onyx-orb-wrap" data-scrub>
       <div class="onyx-orb"><span>Onyx</span></div>
       <div class="onyx-orb-ring"></div>

@@ -4,14 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#08090b" />
-<title>Flash CLI: Fast Local Agent Shell | Flash Project</title>
-<meta name="description" content="Flash CLI (FLASH) is the AI-powered command line tool that fuses real local intelligence with your terminal. Chat with your own Ollama models and run real shell commands, entirely on hardware you control." />
-<meta name="keywords" content="Flash CLI, FLASH, Flash Project, FlashProject, local AI CLI, Ollama CLI, AI terminal, AI shell, local LLM tool" />
+<title>FLASH: the AI coding agent that never leaves your machine</title>
+<meta name="description" content="FLASH is an AI coding agent for your terminal that runs the model on your own hardware. It reads files, runs commands and does the work, with no API key, no subscription and no code ever uploaded. Free and open source." />
+<meta name="keywords" content="Flash CLI, FLASH, local AI coding agent, offline AI CLI, private AI terminal, Ollama CLI, AI shell, local LLM tool, self-hosted AI assistant" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://flashproject.dev/" />
 
-<meta property="og:title" content="Flash CLI: Fast Local Agent Shell" />
-<meta property="og:description" content="The most capable local AI shell available today. Local-first, powered by Ollama, zero cloud." />
+<meta property="og:title" content="FLASH: the AI coding agent that never leaves your machine" />
+<meta property="og:description" content="A real agent in your terminal, running on your own hardware. No API key, no subscription, no code uploaded. Free and open source." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://flashproject.dev/" />
 <meta property="og:site_name" content="FlashProject" />
@@ -22,8 +22,8 @@
 <meta property="og:image:alt" content="Flash CLI: local AI CLI for Ollama" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Flash CLI: Fast Local Agent Shell" />
-<meta name="twitter:description" content="The most capable local AI shell available today. Local-first, powered by Ollama, zero cloud." />
+<meta name="twitter:title" content="FLASH: the AI coding agent that never leaves your machine" />
+<meta name="twitter:description" content="A real agent in your terminal, running on your own hardware. No API key, no subscription, no code uploaded. Free and open source." />
 <meta name="twitter:image" content="https://flashproject.dev/assets/images/og-image.png" />
 
 <link rel="icon" type="image/svg+xml" href="assets/images/logo-icon.svg" />
@@ -39,7 +39,7 @@
   "alternateName": ["FLASH", "Flash Project", "FlashProject", "Fast Local Agent Shell"],
   "url": "https://flashproject.dev/",
   "image": "https://flashproject.dev/assets/images/og-image.png",
-  "description": "Flash CLI (FLASH) is the AI-powered command line tool that fuses real local intelligence with your terminal. Chat with your own Ollama models and run real shell commands, entirely on hardware you control.",
+  "description": "FLASH is an AI coding agent for your terminal that runs the model on your own hardware. It reads files, runs commands and does the work, with no API key, no subscription and no code ever uploaded. Free and open source, MIT licensed.",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Windows, macOS, Linux",
   "softwareHelp": "https://github.com/Natuworkguy/Flash",
@@ -66,13 +66,18 @@
 <main id="top">
   <section class="hero" data-include="partials/hero.html"></section>
   <div class="section-divider" aria-hidden="true"></div>
-  <section class="watch" id="watch" data-include="partials/watch.html"></section>
+  <!-- Comparison sits directly under the hero: it is the strongest argument on
+       the page, so it runs before the demo rather than after it. -->
+  <section class="compare-section" id="compare" data-include="partials/compare.html"></section>
   <section class="power-section" id="power" data-include="partials/power.html"></section>
   <section class="claim-section" data-include="partials/claim.html"></section>
+  <section class="watch" id="watch" data-include="partials/watch.html"></section>
   <section class="features" id="features" data-include="partials/features.html"></section>
   <section class="onyx" id="onyx" data-include="partials/onyx.html"></section>
   <section class="install" id="install" data-include="partials/install.html"></section>
   <section class="usage" id="usage" data-include="partials/usage.html"></section>
+  <!-- Objections get handled immediately before the close, not after it. -->
+  <section class="faq" id="faq" data-include="partials/faq.html"></section>
   <div class="marquee" data-include="partials/marquee.html"></div>
   <section class="final-cta" data-include="partials/final-cta.html"></section>
 </main>
