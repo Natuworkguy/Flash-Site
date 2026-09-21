@@ -80,11 +80,13 @@ const GROUPS = [
   { sel: ".onyx-kicker, .onyx-title, .onyx-sub, .onyx-subhead", preset: "rise", stagger: true },
   { sel: ".onyx-specs li", preset: "rise-sm", stagger: true },
   { sel: ".onyx-new li", preset: "rise-sm", stagger: true },
+  // .onyx-visual carries the entrance; the mark inside it keeps its own
+  // scroll-linked float via [data-scrub], so giving the wrapper a preset too
+  // would put two rules on the same transform.
   { sel: ".onyx-visual", preset: "rise", persp: 1300 },
   // .aura-field is deliberately absent: it centres itself with a transform
   // and is already scroll-driven through [data-scrub], so a preset here would
   // overwrite the centring and knock it out of position.
-  { sel: ".onyx-orb-wrap", preset: "rise-sm" },
   { sel: ".onyx-compare .compare-row", preset: "rise-sm", stagger: true },
   { sel: ".onyx-devlog, .onyx-claim", preset: "rise", stagger: true },
 

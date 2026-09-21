@@ -1456,31 +1456,34 @@ section {
 .onyx-sub strong { color: var(--fg); font-weight: 700; }
 .onyx-sub code { font-size: var(--fs-sm); word-break: break-all; }
 
-.onyx-visual { display: flex; justify-content: center; }
-.onyx-orb-wrap { position: relative; width: 260px; height: 260px; }
-.onyx-orb {
-  position: absolute; inset: 30px;
-  border-radius: 50%;
+/* `align-items` must not be left at its `stretch` default here: the wrapper is
+   a flex item, so stretching sets its cross size from the column's height and
+   flex-shrink trims the width, which quietly squashed a 260x260 square into a
+   237x214 rectangle and turned the sphere into an ellipse. */
+.onyx-visual {
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 4.5rem;
-  background: radial-gradient(circle at 35% 30%, var(--accent-2), var(--accent) 55%, #4a2308 100%);
-  transform: translateY(calc((var(--p, 0) - 0.5) * -28px)) scale(calc(0.94 + var(--p, 0) * 0.1));
-  will-change: transform;
+  align-items: flex-start;
 }
 
-.onyx-orb + .onyx-orb span {
-  box-shadow: 0 0 80px 10px var(--accent-glow), inset -10px -10px 30px rgba(0,0,0,0.4);
-}
-
-.onyx-orb-ring {
-  position: absolute; inset: 0;
-  border-radius: 50%;
-  border: 1px dashed var(--line);
-  transform: rotate(calc(var(--p, 0) * -540deg));
+/* The mark carries its own orbit, shimmer and glow inside the SVG, so all the
+   wrapper adds is the scroll-linked float that the rest of the page uses. */
+.onyx-orb-wrap {
+  position: relative;
+  flex: 0 0 auto;
+  width: min(260px, 72vw);
+  aspect-ratio: 1;
+  transform: translateY(calc((var(--p, 0) - 0.5) * -28px));
   will-change: transform;
+}
+.onyx-mark {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* A soft bed of accent light so the stone sits on the page rather than
+     floating flat against it. */
+  filter: drop-shadow(0 0 34px rgba(255, 138, 61, 0.28))
+          drop-shadow(0 18px 40px rgba(0, 0, 0, 0.55));
 }
 
 /* =============== CODE BLOCKS / TABS =============== */

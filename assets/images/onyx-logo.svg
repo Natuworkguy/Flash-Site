@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="512" height="512" role="img" aria-label="Flash Onyx">
+  <title>Flash Onyx</title>
+
+  <defs>
+    <clipPath id="orb"><circle cx="64" cy="64" r="40"/></clipPath>
+
+    <!-- Lit from upper left, falling to a deep ember at the far limb. -->
+    <radialGradient id="body" cx="34%" cy="28%" r="82%">
+      <stop offset="0%"   stop-color="#ffe3a8"/>
+      <stop offset="16%"  stop-color="#ffcf6b"/>
+      <stop offset="46%"  stop-color="#ff8a3d"/>
+      <stop offset="78%"  stop-color="#a1501c"/>
+      <stop offset="100%" stop-color="#3d1d07"/>
+    </radialGradient>
+
+    <!-- Light bouncing back up off the far side keeps the dark limb from
+         going flat, the way a real sphere never has a dead edge. -->
+    <radialGradient id="bounce" cx="76%" cy="82%" r="46%">
+      <stop offset="0%"   stop-color="#ffb066" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#ffb066" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="spec" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#fffdf6" stop-opacity="0.95"/>
+      <stop offset="60%"  stop-color="#fff1cf" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#fff1cf" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="55%"  stop-color="#ff8a3d" stop-opacity="0"/>
+      <stop offset="82%"  stop-color="#ff8a3d" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#ff8a3d" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Onyx is a banded stone; these are the bands, swept around the form. -->
+    <linearGradient id="band" x1="0" y1="0" x2="1" y2="0.35">
+      <stop offset="0%"   stop-color="#fff0cc" stop-opacity="0"/>
+      <stop offset="45%"  stop-color="#fff0cc" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#fff0cc" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.8"/>
+    </filter>
+    <filter id="softer" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+  </defs>
+
+  <style>
+    /* Dashes travel along each orbit at their own rate; nothing spins as a
+       whole, so the rings keep their tilt and read as orbits rather than
+       as a turning wheel. */
+    .o1 { animation: run 9s linear infinite; }
+    .o2 { animation: run 14s linear infinite reverse; }
+    .breathe { animation: breathe 5s ease-in-out infinite; transform-origin: 64px 64px; }
+    @keyframes run { to { stroke-dashoffset: -120; } }
+    @keyframes breathe { 0%,100% { opacity: .55; } 50% { opacity: .95; } }
+    @media (prefers-reduced-motion: reduce) { .o1,.o2,.breathe { animation: none; } }
+  </style>
+
+  <circle class="breathe" cx="64" cy="64" r="58" fill="url(#halo)"/>
+
+  <!-- Back half of each orbit: drawn first so the sphere occludes it. -->
+  <g fill="none" stroke-linecap="round">
+    <g transform="rotate(-22 64 64)">
+      <ellipse class="o1" cx="64" cy="64" rx="57" ry="18"
+               stroke="#ff8a3d" stroke-opacity="0.5" stroke-width="1.3" stroke-dasharray="5 7"/>
+    </g>
+    <g transform="rotate(28 64 64)">
+      <ellipse class="o2" cx="64" cy="64" rx="52" ry="12"
+               stroke="#ffcf6b" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="3 9"/>
+    </g>
+  </g>
+
+  <circle cx="64" cy="64" r="40" fill="url(#body)"/>
+
+  <g clip-path="url(#orb)">
+    <circle cx="64" cy="64" r="40" fill="url(#bounce)"/>
+
+    <!-- Bands follow the curvature rather than running straight across, so
+         they sit on the surface instead of floating over it. -->
+    <g opacity="0.9">
+      <path d="M24 52 Q64 34 104 56 Q64 44 24 52 Z" fill="url(#band)"/>
+      <path d="M24 70 Q64 52 104 74 Q64 62 24 70 Z" fill="url(#band)" opacity="0.8"/>
+      <path d="M26 84 Q64 70 102 88 Q64 78 26 84 Z" fill="url(#band)" opacity="0.5"/>
+    </g>
+
+    <!-- Terminator: a soft dark wash pulling the lower right away from us. -->
+    <circle cx="86" cy="88" r="42" fill="#2a1205" opacity="0.5" filter="url(#softer)"/>
+
+    <ellipse cx="50" cy="45" rx="10" ry="6.6" fill="url(#spec)" transform="rotate(-28 50 45)" filter="url(#soft)"/>
+    <ellipse cx="46" cy="41" rx="3.4" ry="2.1" fill="#fffdf6" opacity="0.95" transform="rotate(-28 46 41)"/>
+  </g>
+
+  <!-- Limb light, then the front half of each orbit crossing over the sphere. -->
+  <circle cx="64" cy="64" r="40" fill="none" stroke="#ffcf6b" stroke-opacity="0.35" stroke-width="1"/>
+  <circle cx="64" cy="64" r="40" fill="none" stroke="#3d1d07" stroke-opacity="0.5" stroke-width="2.5"
+          stroke-dasharray="70 200" stroke-dashoffset="-88"/>
+
+  <g fill="none" stroke-linecap="round">
+    <g transform="rotate(-22 64 64)">
+      <path class="o1" d="M7 64 A57 18 0 0 0 121 64"
+            stroke="#ffb35c" stroke-opacity="0.95" stroke-width="1.6" stroke-dasharray="5 7"/>
+    </g>
+    <g transform="rotate(28 64 64)">
+      <path class="o2" d="M12 64 A52 12 0 0 0 116 64"
+            stroke="#ffcf6b" stroke-opacity="0.6" stroke-width="1.1" stroke-dasharray="3 9"/>
+    </g>
+  </g>
+</svg>
