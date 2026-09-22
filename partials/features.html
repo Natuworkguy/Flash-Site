@@ -1,11 +1,23 @@
 <h2 class="section-title">Not a chat box that happens<br />to sit in a terminal.</h2>
-<p class="section-sub">Nine things FLASH does on your machine, with your files, using your hardware.</p>
+<p class="section-sub">Thirteen things FLASH does on your machine, with your files, using your hardware.</p>
 
 <div class="feature-grid">
   <article class="feature-card feature-card-wide">
     <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a8 8 0 1 1-3.3-6.47M21 4v5h-5"/></svg></div>
     <h3>Interactive AI chat</h3>
     <p>Chat with local or self-hosted models served by Ollama, straight from your terminal. No browser tab required.</p>
+  </article>
+
+  <article class="feature-card">
+    <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4m0 0L6.5 16.8M12 11.5l5.5 5.3"/></svg></div>
+    <h3>Async sub-agents</h3>
+    <p>Independent pieces of a job go to background sub-agents while the model gets on with something else. When one finishes, FLASH wakes the model with the answer and it reports back without you typing anything. <code>/agents</code> watches them all update live, <code>/agents &lt;id&gt;</code> opens one in full. It only wakes on an empty prompt, so a half-typed message is never taken from you, and it stops after three wakes in a row.</p>
+  </article>
+
+  <article class="feature-card">
+    <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6.5 6 8.5 9.5 5"/><path d="M4 17.5 6 19.5 9.5 16"/><path d="M13 7h7M13 18h7"/></svg></div>
+    <h3>Visible plans</h3>
+    <p>A multi-step task opens with a checklist, and each box gets ticked in place as that step actually lands. You watch the run happen instead of waiting for a wall of text at the end. <code>/plan</code> reprints the current list at any time; short tasks skip it entirely.</p>
   </article>
 
   <article class="feature-card">
@@ -17,7 +29,19 @@
   <article class="feature-card">
     <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 17l6-6-6-6M12 19h8"/></svg></div>
     <h3>Shell command execution</h3>
-    <p>FLASH can call a <code>shell</code> tool and read the output itself, or you can fire off any command instantly with a <code>!</code> prefix. Throwaway files it creates along the way, like scratch scripts or downloaded pages, stay in a dedicated scratch directory instead of cluttering your project, and get cleared out automatically when you exit.</p>
+    <p>FLASH can call a <code>shell</code> tool and read the output itself, or you can fire off any command instantly with a <code>!</code> prefix. The model sees those too: the command, its exit code, and its output ride along with your next message, so <em>"why did that fail?"</em> works right after one. Throwaway files it creates along the way, like scratch scripts or downloaded pages, stay in a dedicated scratch directory instead of cluttering your project, and get cleared out automatically when you exit.</p>
+  </article>
+
+  <article class="feature-card">
+    <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/><path d="M6 9h3M6 13h3M15 9h3M15 13h3"/></svg></div>
+    <h3>VS Code aware</h3>
+    <p>Run FLASH in VS Code's terminal and it works with the editor around it. An edit waiting on your yes opens as a side-by-side diff you can read properly, and the model opens a file at the exact line it's talking about instead of quoting a number at you.</p>
+  </article>
+
+  <article class="feature-card">
+    <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 21 19H3L12 3Z"/><path d="M12 10v4m0 3h.01"/></svg></div>
+    <h3>Knows what just broke</h3>
+    <p><code>/hook install</code> adds a small zsh or bash hook, live in VS Code's terminal only, that records what you ran there and whether it failed. Ask "why did that fail?" and the model already knows which command and where, with nothing pasted. Commands starting with a space are skipped, secrets are redacted, and <code>/hook remove</code> takes it back out.</p>
   </article>
 
   <article class="feature-card">
@@ -35,7 +59,7 @@
   <article class="feature-card">
     <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h5"/></svg></div>
     <h3>Markdown support</h3>
-    <p>Rich formatting for AI responses in the terminal: no raw asterisks, no wall of text. FLASH can also generate real Word documents (DOCX) and PDFs when you need more than terminal text.</p>
+    <p>Rich formatting for AI responses in the terminal: no raw asterisks, no wall of text, and LaTeX rendered as Unicode, so <code>\frac{\pi}{2}</code> arrives as &pi;/2 instead of TeX source. FLASH can also generate real Word documents (DOCX) and PDFs when you need more than terminal text.</p>
   </article>
 
   <article class="feature-card">
@@ -46,8 +70,8 @@
 
   <article class="feature-card">
     <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
-    <h3>Image input</h3>
-    <p>Just name the file and FLASH looks: <em>"Look at mockup.png and make a site that looks like it."</em> No command needed. Or reach for <code>/image &lt;path&gt; &lt;prompt&gt;</code> to hand one over explicitly, with completion for matching files as you type, filtered to supported types (PNG, JPG, JPEG, WEBP, GIF, BMP) and paths with spaces quoted automatically.</p>
+    <h3>Images, in and out</h3>
+    <p>Just name the file and FLASH looks: <em>"Look at mockup.png and make a site that looks like it."</em> No command needed. Or reach for <code>/image &lt;path&gt; &lt;prompt&gt;</code> to hand one over explicitly, with completion for matching files as you type, filtered to supported types (PNG, JPG, JPEG, WEBP, GIF, BMP) and paths with spaces quoted automatically. It hands pictures back the same way: a finished image is drawn inline in terminals that support it, and opened in your image viewer everywhere else.</p>
   </article>
 
   <article class="feature-card">

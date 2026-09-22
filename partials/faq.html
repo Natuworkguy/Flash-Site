@@ -12,10 +12,12 @@
         right tool, and never claim work it didn't do.
       </p>
       <p>
-        Where a frontier cloud model still wins is long, open-ended reasoning
-        over a large codebase. If that's your day, FLASH is the wrong tool and
-        we'd rather you knew now. If you want to judge Onyx before committing
-        to a {{onyx.cloud.localSize}} download, the
+        2.5 doubled the window to 131,072 tokens and added guidance well
+        outside code, so more of a real session fits and more of a real day
+        is covered. Where a frontier cloud model still wins is long,
+        open-ended reasoning over a large codebase. If that's your day, FLASH
+        is the wrong tool and we'd rather you knew now. If you want to judge
+        Onyx before committing to a {{onyx.cloud.localSize}} download, the
         <code>{{onyx.cloud.tag}}</code> tag runs the same prompt and sampling
         on a hosted base.
       </p>
@@ -31,6 +33,11 @@
         {{onyx.small.tag}} is a 7 GB pull and is the everyday driver;
         {{onyx.large.tag}} is {{onyx.cloud.localSize}}. Rule of thumb: if
         Ollama can serve it, FLASH can drive it.
+      </p>
+      <p>
+        The 128K window is a ceiling, not a fixed cost, but a long session
+        fills it and the cache grows with it, so leave some headroom beyond
+        the weights themselves.
       </p>
       <p>
         FLASH isn't tied to Onyx either. Point it at any tool-calling model
@@ -52,6 +59,26 @@
         Anything you type into a <code>!</code> command yourself, passwords
         included, goes straight to your terminal's masked input. FLASH never
         sees it and never logs it.
+      </p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary><span>Sub-agents sound like a lot of tokens. Do they run away?</span><span class="faq-mark" aria-hidden="true"></span></summary>
+    <div class="faq-body">
+      <p>
+        They're bounded on purpose. A sub-agent only gets started for a piece
+        of work that's genuinely independent, and it's handed the file, search
+        and web tools only. It gets <code>shell</code> and <code>write</code>
+        in autonomous mode and nowhere else, because it has no terminal to
+        ask you from.
+      </p>
+      <p>
+        When one finishes, FLASH wakes the model with the answer, but only
+        while your prompt is empty, so a half-typed message is never taken
+        from you, and wakes stop after three in a row without you writing.
+        A chain of sub-agents can't quietly run all night. <code>/agents</code>
+        shows you every one that's still going.
       </p>
     </div>
   </details>

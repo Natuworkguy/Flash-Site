@@ -23,7 +23,7 @@ Then open `http://localhost:8000`.
 
 ## Updating content
 
-Most text lives directly in the relevant `partials/*.html` file. Commands, links, and the Flash Onyx model info live in `assets/js/config.js`, change them there and every reference across the site updates automatically.
+Most text lives directly in the relevant `partials/*.html` file. Commands, links, the current FLASH release (`cliVersion`, `releaseNotes`), and the Flash Onyx model info live in `assets/js/config.js`, change them there and every reference across the site updates automatically.
 
 ## Regenerating the social card
 

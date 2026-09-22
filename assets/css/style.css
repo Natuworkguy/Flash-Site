@@ -1341,6 +1341,19 @@ section {
 .onyx-new strong { color: var(--fg); font-weight: 700; }
 .onyx-new em { color: var(--accent-2); font-style: normal; font-weight: 600; }
 
+/* Label above each onyx-new list: "New in 2.5" splits the release's own
+   changes from the behaviour carried over, so neither list has to repeat
+   which version it belongs to. */
+.onyx-newhead {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 12px;
+}
+.onyx-newhead b { font-weight: 600; }
+
 .onyx-devlog {
   display: inline-flex;
   align-items: center;

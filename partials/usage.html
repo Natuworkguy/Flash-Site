@@ -14,6 +14,12 @@
         <tr><td><code>/refresh</code></td><td>Reload your config from disk</td></tr>
         <tr><td><code>/clear</code></td><td>Clear the conversation history</td></tr>
         <tr><td><code>/image</code> <span class="cmd-alt">&lt;path&gt; &lt;prompt&gt;</span></td><td>Hand the model an image alongside your prompt</td></tr>
+        <tr><td><code>/agents</code> <span class="cmd-alt">&lt;id&gt;</span></td><td>Watch sub-agents work live, or open one in full</td></tr>
+        <tr><td><code>/plan</code></td><td>Reprint the checklist the model is working through</td></tr>
+        <tr><td><code>/hook</code> <span class="cmd-alt">install | remove</span></td><td>Let FLASH see what you run in VS Code's terminal</td></tr>
+        <tr><td><code>/voice</code> <span class="cmd-alt">on | off</span></td><td>Talk to FLASH and hear the replies back</td></tr>
+        <tr><td><code>/version</code></td><td>Show the version and check GitHub for updates</td></tr>
+        <tr><td><code>/update</code></td><td>Update FLASH to the latest release</td></tr>
         <tr><td><code>/bye</code></td><td>Exit the application</td></tr>
       </tbody>
     </table>
@@ -31,6 +37,7 @@
       <div class="mini-term-row"><span class="mini-prompt">$</span><span class="mini-cmd">!echo "Hello"</span></div>
     </div>
     <p class="usage-desc usage-note">Every <code>!</code> command runs with full interactive input live, a real terminal channel, not a simulation. Prompts, passwords or other sensitive info<span class="note-star">***</span>, and editors just work.</p>
+    <p class="usage-desc usage-note">The model sees them, too. The command, its exit code, and its output travel with your next message, so <em>"why did that fail?"</em> needs nothing pasted. Run FLASH in VS Code and <code>/hook install</code> extends that to the commands you run in the editor's own terminal.</p>
   </div>
 
   <div class="usage-card">
@@ -47,6 +54,12 @@
       opens it: <em>"Look at mockup.png and make a site that looks like
       it."</em> The <code>/image</code> command is there when you want to be
       explicit, not a requirement.
+    </p>
+    <p class="usage-desc usage-note">
+      Ask for something that takes several steps and it posts a checklist
+      first, ticking each box as that step lands, so you can see where it
+      is. Pieces that don't depend on each other go to background
+      sub-agents, and FLASH brings you their answers as they finish.
     </p>
     <p class="usage-desc usage-note">
       By default, FLASH notifies you and asks for your input before running

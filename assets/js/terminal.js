@@ -1,3 +1,5 @@
+import { SITE } from "./config.js";
+
 export function initTerminal() {
   const termOutput = document.getElementById("term-output");
   if (!termOutput) return;
@@ -38,7 +40,7 @@ export function initTerminal() {
       case "banner":
         div.innerHTML =
           `<div class="banner-title">Flash CLI</div>` +
-          `<div class="banner-info"><span class="banner-accent">/help</span> for commands&nbsp;&nbsp;&nbsp;model: llama3.1&nbsp;&nbsp;&nbsp;host: localhost:11434</div>`;
+          `<div class="banner-info"><span class="banner-accent">/help</span> for commands&nbsp;&nbsp;&nbsp;model: ${SITE.onyx.large.tag}&nbsp;&nbsp;&nbsp;host: localhost:11434</div>`;
         break;
       case "prompt":
         div.innerHTML = `<span class="tline-chevron">&#10095;</span> <span class="tline-target"></span>`;

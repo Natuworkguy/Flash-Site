@@ -4,6 +4,9 @@
 // propagates to every section, code block, and copy button automatically.
 export const SITE = {
   github: "https://github.com/Natuworkguy/Flash",
+  // Bump alongside `onyx` when a new FLASH release ships.
+  cliVersion: "v0.5.4",
+  releaseNotes: "https://github.com/Natuworkguy/Flash/releases/tag/v0.5.4",
   demoVideo: {
     id: "padyQR3tPUs",
     title: "FLASH demo video",
@@ -24,41 +27,41 @@ export const SITE = {
   },
   // Hot-swap point: bump these fields to promote a new Flash Onyx release
   // across the entire site in one edit. Tags carry a size from Onyx 2 on, so
-  // a bare `flash-onyx-2.4` does not resolve: every model reference needs
+  // a bare `flash-onyx-2.5` does not resolve: every model reference needs
   // `:12b`, `:31b`, or `:31b-cloudbase`.
   onyx: {
-    version: "Flash Onyx 2.4",
+    version: "Flash Onyx 2.5",
     devlog: "https://dev.to/natuworkguy/series/43947",
     releaseTag: "Current release",
     baseModel: "gemma4",
     sizes: "12B / 31B",
-    context: "64K of 256K",
+    context: "128K of 256K",
     input: "text + images",
     small: {
-      tag: "flash-onyx-2.4:12b",
+      tag: "flash-onyx-2.5:12b",
       label: "12B, the everyday driver",
-      pullCmd: "ollama pull Natuworkguy/flash-onyx-2.4:12b",
+      pullCmd: "ollama pull Natuworkguy/flash-onyx-2.5:12b",
     },
     large: {
-      tag: "flash-onyx-2.4:31b",
+      tag: "flash-onyx-2.5:31b",
       label: "31B, the flagship",
-      pullCmd: "ollama pull Natuworkguy/flash-onyx-2.4:31b",
+      pullCmd: "ollama pull Natuworkguy/flash-onyx-2.5:31b",
     },
     // Cloudbase ships the prompt alone and runs on a hosted base, so it
     // exists only for sizes whose base publishes a `-cloud` tag. gemma4
     // publishes one at 31b and none at 12b, which is why there is no
     // 12b-cloudbase: models/build.py checks the registry and skips it.
     cloud: {
-      tag: "flash-onyx-2.4:31b-cloudbase",
+      tag: "flash-onyx-2.5:31b-cloudbase",
       label: "31B cloudbase, 96 kB",
-      pullCmd: "ollama pull Natuworkguy/flash-onyx-2.4:31b-cloudbase",
+      pullCmd: "ollama pull Natuworkguy/flash-onyx-2.5:31b-cloudbase",
       hostedBase: "gemma4:31b-cloud",
       downloadSize: "96 kB",
       localSize: "19.9 GB",
       signinCmd: "ollama signin",
     },
-    buildCmd: "python3 models/build.py models/flash-onyx-2.4.Modelfile",
-    showCmd: "ollama show --modelfile flash-onyx-2.4:31b",
-    selectCmd: "/model flash-onyx-2.4:31b",
+    buildCmd: "python3 models/build.py models/flash-onyx-2.5.Modelfile",
+    showCmd: "ollama show --modelfile flash-onyx-2.5:31b",
+    selectCmd: "/model flash-onyx-2.5:31b",
   },
 };

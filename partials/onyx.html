@@ -4,9 +4,9 @@
     <h2 class="onyx-title">Meet <span class="glow-word">{{onyx.version}}.</span><span class="onyx-badge">{{onyx.releaseTag}}</span></h2>
     <p class="onyx-sub">
       <strong>Our most capable model yet.</strong> {{onyx.baseModel}},
-      retrained and retuned to think and act like Flash <i>should</i>: 64K loaded, reads
-      images, and it now works the answer out before it says one. Runs on your
-      machine.
+      retrained and retuned to think and act like Flash <i>should</i>: 128K loaded,
+      double 2.4, reads images, works the answer out before it says one, and now
+      covers far more than code. Runs on your machine.
     </p>
 
     <ul class="onyx-specs">
@@ -14,9 +14,21 @@
       <li><span>Sizes</span><strong>{{onyx.sizes}}</strong></li>
       <li><span>Context</span><strong>{{onyx.context}}</strong></li>
       <li><span>Input</span><strong>{{onyx.input}}</strong></li>
-      <li><span>Prompt</span><strong>648 lines</strong></li>
+      <li><span>Prompt</span><strong>924 lines</strong></li>
     </ul>
 
+    <p class="onyx-newhead"><b>New in 2.5</b></p>
+    <ul class="onyx-new">
+      <li><strong>Twice the context: 131,072 tokens.</strong> A long session, a big file, and a full test log fit at once, so it trims history far later than 2.4 did.</li>
+      <li><strong>It covers the rest of the stack now.</strong> New guidance for JavaScript and TypeScript, React, Go and Rust, SQL, regular expressions, algorithms, HTTP APIs, web security, systems and networking, builds and CI, data work, charts and spreadsheets.</li>
+      <li><strong>And the parts of the day that aren't code.</strong> Health, money, business, translation, tutoring, creative writing, science, dates and time zones, when to say no, and people in a bad place. Same voice, same brevity.</li>
+      <li><strong>Everything it reads is data, not orders.</strong> A file, a page, an issue, or a search result that tries to instruct it gets quoted back to you instead of obeyed.</li>
+      <li><strong>Tool failures get read, not routed around.</strong> Missing, not permitted, malformed, refused: it says which one, instead of quietly trying something else.</li>
+      <li><strong>It knows what the app around it can do.</strong> Where sub-agents exist it starts them and ends its turn; where a failed command's output is already there it answers from that; where files open at a line, it opens one.</li>
+      <li><strong>No name of its own.</strong> It goes by whatever the app running it calls it, which is Flash here. Asked what it is, it says the Onyx 2.5 model on a Gemma base.</li>
+    </ul>
+
+    <p class="onyx-newhead"><b>Still true from 2.4</b></p>
     <ul class="onyx-new">
       <li><strong>It computes, then answers.</strong> Steps first, a check by a different route, the number once at the end. No figure stated before it was worked out.</li>
       <li><strong>It can't claim work it didn't do.</strong> No tool call, no "I ran". You get <em>"from memory, ripgrep has no such flag; <code>rg --help | grep frob</code> would settle it,"</em> and every part it marks done quotes the proof.</li>
@@ -99,15 +111,15 @@
     </div>
 
     <p class="onyx-note">
-      Coming from 2.2 or 2.3? Swap the tag and carry on: same weights, same
-      sampling, new prompt, so the pull reuses layers you already have. Every
-      tag from Onyx 2 on carries a size, so a bare
-      <code>flash-onyx-2.4</code> doesn't resolve: use
+      Coming from 2.3 or 2.4? Swap the tag and carry on: same weights, new
+      prompt, and twice the context, so the pull reuses layers you already
+      have. Every tag from Onyx 2 on carries a size, so a bare
+      <code>flash-onyx-2.5</code> doesn't resolve: use
       <code>{{onyx.small.tag}}</code>, <code>{{onyx.large.tag}}</code>, or
       <code>{{onyx.cloud.tag}}</code>, and switch with
       <code>{{onyx.selectCmd}}</code>. Replies stay short by default, ask for
       the long version when you want one. Every older release still builds,
-      <code>flash-onyx-2.3:31b-cloudbase</code> included.
+      <code>flash-onyx-2.4:31b-cloudbase</code> included.
     </p>
   </div>
   <div class="onyx-visual">
