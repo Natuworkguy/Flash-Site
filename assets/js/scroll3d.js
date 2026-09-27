@@ -68,6 +68,11 @@ const GROUPS = [
   { sel: ".claim-visual", preset: "rise", persp: 1000 },
   { sel: ".claim-text", preset: "rise", persp: 1000 },
 
+  { sel: ".learn-kicker", preset: "rise" },
+  { sel: ".learn-card", preset: "rise", stagger: true, persp: 1100 },
+  { sel: ".learn-loop li", preset: "rise-sm", stagger: true },
+  { sel: ".learn-note", preset: "rise" },
+
   { sel: ".section-title", preset: "rise" },
   { sel: ".section-sub", preset: "rise" },
 

@@ -64,6 +64,25 @@
   </details>
 
   <details class="faq-item">
+    <summary><span>&ldquo;Self-improving&rdquo; how, exactly? Does it retrain the model?</span><span class="faq-mark" aria-hidden="true"></span></summary>
+    <div class="faq-body">
+      <p>
+        No retraining, and nothing leaves your machine. The model's weights
+        never change. What improves is what FLASH knows when it starts: it
+        writes facts about you to memory and procedures for recurring tasks
+        to skills, and reads both back before it works.
+      </p>
+      <p>
+        Both are plain files, <code>~/.flash_memory.md</code> and
+        <code>~/.flash/skills</code>, so you can read, edit, or delete
+        anything it saved. <code>/memory</code> and <code>/skills</code> show
+        them, and <code>/forget</code> removes one. Skills you write yourself
+        are never touched by its background review.
+      </p>
+    </div>
+  </details>
+
+  <details class="faq-item">
     <summary><span>Sub-agents sound like a lot of tokens. Do they run away?</span><span class="faq-mark" aria-hidden="true"></span></summary>
     <div class="faq-body">
       <p>
