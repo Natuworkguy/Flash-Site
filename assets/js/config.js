@@ -5,8 +5,8 @@
 export const SITE = {
   github: "https://github.com/Natuworkguy/Flash",
   // Bump alongside `onyx` when a new FLASH release ships.
-  cliVersion: "v0.5.5",
-  releaseNotes: "https://github.com/Natuworkguy/Flash/releases/tag/v0.5.5",
+  cliVersion: "v0.5.6",
+  releaseNotes: "https://github.com/Natuworkguy/Flash/releases/tag/v0.5.6",
   demoVideo: {
     id: "padyQR3tPUs",
     title: "FLASH demo video",
