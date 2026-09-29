@@ -215,6 +215,7 @@ section {
 .section-title {
   font-size: var(--h2);
   font-weight: 800;
+  line-height: 1.1;
   letter-spacing: -0.03em;
   margin: 0 0 12px;
   text-align: center;
@@ -706,6 +707,71 @@ section {
 .compare-kicker,
 .learn-kicker,
 .web-kicker { text-align: center; }
+
+/* =============== BY THE NUMBERS =============== */
+
+/* Four big figures under the hero: the whole pitch, told in numbers. */
+.stats { max-width: 1120px; margin: 0 auto; padding: 8px var(--section-x) var(--section-y); text-align: center; }
+.stats-kicker {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin: 0 0 22px;
+}
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+@media (max-width: 900px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+.stat {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 30px 18px 26px;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--bg-alt);
+  transition: border-color 0.35s, background 0.35s;
+}
+.stat:hover { border-color: var(--accent-dim); background: var(--bg-raise); }
+.stat-num {
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(100deg, var(--accent-2), var(--accent) 60%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.stat-label { color: var(--muted); font-size: var(--fs-md); max-width: 18ch; line-height: 1.45; }
+.stat-label sup, .stats-foot sup { color: var(--accent); }
+.stats-foot { margin: 18px auto 0; max-width: 640px; color: var(--muted); font-size: var(--fs-xs); opacity: 0.85; }
+.stats-foot a { color: var(--accent-2); text-decoration: underline; text-underline-offset: 3px; }
+
+/* =============== OUR APPROACH =============== */
+
+/* The promises FLASH makes about its own behaviour, one card each. */
+.approach { max-width: 1120px; margin: 0 auto; padding: var(--section-y) var(--section-x); }
+.approach-kicker {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin: 0 0 14px;
+  text-align: center;
+}
+.approach .section-sub { max-width: 620px; margin-left: auto; margin-right: auto; text-align: center; }
+.approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
+@media (max-width: 900px) { .approach-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .approach-grid { grid-template-columns: 1fr; } }
+.approach-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 24px 24px;
+  transition: border-color 0.35s, background 0.35s;
+}
+.approach-card:hover { border-color: var(--accent-dim); background: var(--bg-raise); }
+.approach-num { display: block; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent); margin-bottom: 12px; }
+.approach-card h3 { margin: 0 0 10px; font-size: var(--fs-lg); font-weight: 700; }
+.approach-card p { margin: 0; color: var(--muted); font-size: var(--fs-md); }
+.approach-card code { font-size: 0.88em; }
 
 /* =============== COMPARISON =============== */
 

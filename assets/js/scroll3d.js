@@ -68,6 +68,13 @@ const GROUPS = [
   { sel: ".claim-visual", preset: "rise", persp: 1000 },
   { sel: ".claim-text", preset: "rise", persp: 1000 },
 
+  { sel: ".stats-kicker", preset: "rise" },
+  { sel: ".stat", preset: "rise", stagger: true, persp: 1100 },
+  { sel: ".stats-foot", preset: "rise" },
+
+  { sel: ".approach-kicker", preset: "rise" },
+  { sel: ".approach-card", preset: "rise", stagger: true, persp: 1100 },
+
   { sel: ".web-kicker", preset: "rise" },
   { sel: ".web-frame", preset: "rise", persp: 1600 },
   { sel: ".web-point", preset: "rise-sm", stagger: true },
@@ -77,7 +84,7 @@ const GROUPS = [
   { sel: ".learn-loop li", preset: "rise-sm", stagger: true },
   { sel: ".learn-note", preset: "rise" },
 
-  { sel: ".section-title", preset: "rise" },
+  { sel: ".section-title:not(#usage .section-title)", preset: "rise" },
   { sel: ".section-sub", preset: "rise" },
 
   // The nine feature cards are the centrepiece: they alternate which edge
@@ -103,10 +110,9 @@ const GROUPS = [
   { sel: ".code-block", preset: "rise", stagger: true, persp: 1100 },
   { sel: ".live-config", preset: "rise" },
 
-  { sel: ".usage-card", preset: "rise", stagger: true, persp: 1200 },
-  { sel: ".usage-index", preset: "pop" },
-  { sel: ".cmd-table tbody tr", preset: "rise-sm", stagger: 5, persp: 900 },
-  { sel: ".usage-card .mini-term", preset: "rise" },
+  // "Three ways to command it" holds still: its cards, numbers, command
+  // rows, and terminals have no entrance, and its title is left out of
+  // the section-title rule above.
 
   { sel: ".marquee", preset: "rise-sm" },
 
