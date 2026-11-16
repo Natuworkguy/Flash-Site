@@ -10,6 +10,10 @@ The landing page for [FLASH](https://github.com/Natuworkguy/Flash), Fast Local A
 - `assets/js/config.js`: single source of truth for install commands, links, and the current Flash Onyx release. Edit this file to update content site-wide.
 - `assets/js/`: small ES modules: `include.js` (loads partials and fills `{{tokens}}` from config), `scroll.js` (scroll-linked animation), `terminal.js` (hero typing demo), `ui.js` (nav, tabs, copy buttons, reveal animations)
 - `scripts/generate-og-image.py`: rebuilds the social card from the logo SVG
+- `assets/downloads`: the installer downloads the Install section offers (a Windows `.exe`, a zipped macOS app and a
+  Linux script). Each asks whether to install the dev version, runs Flash's installer, shows each step in a window
+  and says when it is done. They are built from the XN Software website's `installers/build.sh`, which writes them
+  here when this repository is checked out beside it.
 
 ## Running locally
 

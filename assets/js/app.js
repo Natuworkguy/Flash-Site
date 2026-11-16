@@ -12,6 +12,8 @@ async function boot() {
   initTerminal();
   initScrollFx();
   initBackground();
+  // a link to a section (flashproject.dev/#download) lands on it once the sections have loaded
+  if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
 }
 
 boot();

@@ -8,6 +8,7 @@ export function initUI() {
   initTilt();
   initScrollTopButton();
   initVideoThumbFallback();
+  initDownload();
 }
 
 function initNavScroll() {
@@ -177,4 +178,26 @@ function initScrollTopButton() {
   onScroll();
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }));
+}
+
+// The installer download: the button offers the visitor's own system, the note under it the other two and what to
+// do once it has downloaded. Without scripts it is the Windows one, with macOS and Linux linked under it.
+function initDownload() {
+  const btn = document.querySelector("[data-download]");
+  const note = document.querySelector("[data-download-note]");
+  if (!btn || !note) return;
+  const ua = navigator.userAgent;
+  const plat = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "";
+  const os = /Win/i.test(plat) || /Windows/.test(ua) ? "windows" : /Mac|iPhone|iPad/i.test(plat + ua) ? "macos" : /Linux|X11|CrOS/i.test(plat + ua) ? "linux" : "windows";
+  const NAMES = { windows: "Windows", macos: "macOS", linux: "Linux" };
+  const FILES = { windows: "assets/downloads/flash-setup.exe", macos: "assets/downloads/install-flash-macos.zip", linux: "assets/downloads/install-flash.sh" };
+  const HOW = {
+    windows: "Open it: it asks if you want the dev version, then shows each step and tells you when it is done. Windows may ask first: choose More info, then Run anyway.",
+    macos: "Open the zip, then right-click Install Flash and choose Open (the first time, macOS asks). It asks if you want the dev version, then shows each step.",
+    linux: "Then run <code>bash install-flash.sh</code>: it asks if you want the dev version, then shows each step in a window.",
+  };
+  btn.href = FILES[os];
+  btn.querySelector("span").textContent = `Download the installer for ${NAMES[os]}`;
+  const others = Object.keys(NAMES).filter((k) => k !== os).map((k) => `<a href="${FILES[k]}" download>${NAMES[k]}</a>`);
+  note.innerHTML = `${HOW[os]} Also for ${others[0]} and ${others[1]}, or use a command below.`;
 }
